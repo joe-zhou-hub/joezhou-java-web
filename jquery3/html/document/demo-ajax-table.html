@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+
+    /* 需求：点击按钮获取JSON中的全部数据并展示在html表格中。
+     1. JSON文件自己编写，需要 `name`，`age` 和 `gender`。
+     2. 点击按钮，出现一个表格，表格中循环展示JSON中的数据，且按钮只触发一次事件。
+     3. 表格必须居中，有外边框，宽度 `500px`。
+     4. 完全使用JQ编写程序，不允许使用HTML和CSS代码。
+     */
+    $(() => {
+        let body = $("body");
+        let btn = $(`<button></button>`)
+            .attr("type", "button")
+            .text("获取数据")
+            .appendTo(body);
+
+        let table = $(`<table></table>`).css({
+            "margin": "0 auto",
+            "border": "1px solid red",
+            "width": "500px",
+            "text-align": "center"
+        }).appendTo(body);
+
+        let tbody = $(`<tbody></tbody>`)
+            .append(`<tr><th>name</th><th>age</th><th>gender</th></tr>`)
+            .appendTo(table);
+
+        btn.one("click", () => {
+            $.ajax({
+                url: "ajax-data.json",
+                type: "post",
+                dataType: "json",
+                success: response => {
+                    let tr;
+                    $.each(response, (i, v) => {
+                        tr = $(`<tr>`).appendTo(tbody);
+                        tr.append(`<td>${v["name"]}</td>`);
+                        tr.append(`<td>${v["age"]}</td>`);
+                        tr.append(`<td>${v["gender"]}</td>`);
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

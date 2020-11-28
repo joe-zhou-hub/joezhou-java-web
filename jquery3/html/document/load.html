@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="load-by-get-btn" type="button">将load-data.html以GET方式远程加载到本页面</button>
+<br/>
+<button id="load-by-post-btn" type="button">将load-data.html以POST方式远程加载到本页面</button>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+        $("#load-by-get-btn").click(() => {
+            let url = "load-data.html?name=joe";
+            $("body").load(url, (response, isSuccess, xhr) => {
+                if ("success" === isSuccess) {
+                    console.log("response:", response);
+                    console.log("xhr:", xhr);
+                }
+            });
+        });
+
+        $("#load-by-post-btn").click(() => {
+            let url = "load-data.html";
+            let data = {"name": "joe"};
+            $("body").load(url, data, (response, isSuccess, xhr) => {
+                if ("success" === isSuccess) {
+                    console.log("response:", response);
+                    console.log("xhr:", xhr);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

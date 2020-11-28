@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).click(ev => {
+        ev = ev || event;
+
+        console.log("page:", ev.pageX, ev.pageY);
+        console.log("screen:", ev.screenX, ev.screenY);
+        console.log("client:", ev.clientX, ev.clientY);
+    });
+</script>
+
+</body>
+</html>

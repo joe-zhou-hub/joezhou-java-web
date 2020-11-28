@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section class="wrap-sec">wrap-sec</section>
+<section class="wrap-sec">wrap-sec</section>
+<section class="wrap-sec">wrap-sec</section>
+
+<ul id="user-ul">
+    <li>广坤</li>
+</ul>
+
+<ul id="emp-ul">
+    <li>广坤</li>
+    <li>刘能</li>
+    <li>赵四</li>
+    <li>大脚</li>
+</ul>
+
+<div id="first-div">first-div</div>
+<div id="second-div">second-div</div>
+
+<hr/>
+<button id="create-node-btn" type="button">创建节点</button>
+<br/>
+<button id="clone-false-btn" type="button">F克隆</button>
+<br/>
+<button id="clone-true-btn" type="button">T克隆</button>
+<br/>
+<button id="append-btn" type="button">将赵四追加到列表中</button>
+<br/>
+<button id="prepend-btn" type="button">将大脚前插到列表中</button>
+<br/>
+<button id="wrap-btn" type="button">在每个.wrap-sec外都分别包裹加粗倾斜和下划线</button>
+<br/>
+<button id="unwrap-btn" type="button">拆掉每个.wrap-sec外层的加粗倾斜和下划线</button>
+<br/>
+<button id="wrap-all-btn" type="button">在所有.wrap-sec的外层包裹加粗倾斜和下划线</button>
+<br/>
+<button id="wrap-inner-btn" type="button">在所有.wrap-sec的内层包裹加粗倾斜和下划线</button>
+<br/>
+<button id="replace-btn" type="button">将有序列表中的项目替换成新的</button>
+<br/>
+<button id="remove-btn" type="button">删除first-div且不保留事件</button>
+<br/>
+<button id="detach-btn" type="button">删除second-div但保留事件</button>
+<br/>
+<button id="empty-btn" type="button">清空emp-ul中的所有子元素</button>
+<br/>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+
+        let userUl = $("#user-ul");
+        let empUl = $("#emp-ul");
+        let wrapSecs = $(".wrap-sec");
+        let firstDiv = $("#first-div");
+        let secondDiv = $("#second-div");
+        firstDiv.click(() => console.log("first div..."));
+        secondDiv.click(() => console.log("second div..."));
+
+        $("#create-node-btn").click(() => {
+            let p1 = $(`<p id="new-p-1">新节点</p>`);
+            console.log(p1);
+
+            let p2 = $(`<p>`);
+            p2.attr("id", "new-p-2");
+            console.log(p2);
+        });
+
+        $("#clone-false-btn").click(ev => {
+            ev = ev || event;
+            let oldBtn = $(ev.target);
+            let newBtn = oldBtn.clone();
+            oldBtn.after(newBtn);
+        });
+
+        $("#clone-true-btn").click(ev => {
+            ev = ev || event;
+            let oldBtn = $(ev.target);
+            let newBtn = oldBtn.clone(true);
+            oldBtn.after(newBtn);
+        });
+
+        $("#append-btn").click(() => {
+            userUl.append(`<li>赵四1</li>`);
+            userUl.append($(`<li>赵四2</li>`));
+            userUl.append((i, v) => `<li>赵四3</li>`);
+            $(`<li>赵四4</li>`).appendTo(userUl);
+        });
+
+        $("#prepend-btn").click(() => {
+            userUl.prepend(`<li>大脚1</li>`);
+            userUl.prepend($(`<li>大脚2</li>`));
+            userUl.prepend((i, v) => `<li>大脚3</li>`);
+            $(`<li>大脚4</li>`).prependTo(userUl);
+        });
+
+        $("#wrap-btn").click(() => {
+            wrapSecs.wrap("<em>");
+            wrapSecs.wrap($("<strong>"));
+            wrapSecs.wrap((i, v) => `<ins>`);
+        });
+
+        $("#unwrap-btn").click(() => wrapSecs.unwrap().unwrap().unwrap());
+
+        $("#wrap-all-btn").click(() => {
+            wrapSecs.wrapAll("<em>");
+            wrapSecs.wrapAll($("<strong>"));
+            wrapSecs.wrapAll((i, v) => `<ins>`);
+        });
+
+        $("#wrap-inner-btn").click(() => {
+            wrapSecs.wrapInner("<em>");
+            wrapSecs.wrapInner($("<strong>"));
+            wrapSecs.wrapInner((i, v) => `<ins>`);
+        });
+
+        $("#replace-btn").click(() => {
+            let guangkunLi = empUl.children().eq(0);
+            let liunengLi = empUl.children().eq(1);
+            let zhaosiLi = empUl.children().eq(2);
+            let dajiaoLi = empUl.children().eq(3);
+
+            guangkunLi.replaceWith(`<li>广坤1</li>`);
+            liunengLi.replaceWith($(`<li>刘能1</li>`));
+            zhaosiLi.replaceWith((i, v) => `<li>赵四1</li>`);
+            $(`<li>大脚1</li>`).replaceAll(dajiaoLi);
+        });
+
+        $("#remove-btn").click(() => {
+            let removedObj = firstDiv.remove();
+            $("body").prepend(removedObj);
+        });
+
+        $("#detach-btn").click(() => {
+            let detachObj = secondDiv.detach();
+            $("body").prepend(detachObj);
+        });
+
+        $("#empty-btn").click(() => empUl.empty());
+    });
+</script>
+
+</body>
+</html>

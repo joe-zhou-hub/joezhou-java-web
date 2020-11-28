@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+        $(document).keydown(ev => {
+            ev = ev || event;
+            console.log("which:", ev.which);
+            console.log("shiftKey:", ev.shiftKey);
+            console.log("altKey:", ev.altKey);
+            console.log("ctrlKey:", ev.ctrlKey);
+        });
+
+        $(document).dblclick(ev => {
+            ev = ev || event;
+            console.log("which:", ev.which);
+        });
+
+        $(document).contextmenu(ev => {
+            ev = ev || event;
+            console.log("which:", ev.which);
+        });
+    });
+</script>
+
+</body>
+</html>

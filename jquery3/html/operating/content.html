@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section id="first-sec">hello</section>
+<section>wor</section>
+<section>ld</section>
+
+<button id="text-btn">操作元素的TEXT内容</button>
+<br/>
+<button id="html-btn">操作元素的HTML内容</button>
+<br/>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+        let firstSec = $("#first-sec");
+        let sections = $("section");
+
+        $("#text-btn")[0].onclick = () => {
+            console.log(firstSec.text());
+            firstSec.text("??");
+            console.log(firstSec.text());
+            firstSec.text("<h1>??</h1>");
+            console.log(firstSec.text());
+
+            console.log(sections.text());
+            sections.text("??");
+            console.log(sections.text());
+            sections.text("<h1>??</h1>");
+            console.log(sections.text());
+
+        };
+
+        $("#html-btn")[0].onclick = () => {
+            console.log(firstSec.html());
+            firstSec.html("??");
+            console.log(firstSec.html());
+            firstSec.html("<h1>??</h1>");
+            console.log(firstSec.html());
+
+            console.log(sections.html());
+            sections.html("??");
+            console.log(sections.html());
+            sections.html("<h1>??</h1>");
+            console.log(sections.html());
+        };
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+
+        $.ajaxSetup({
+            "url": "ajax-data.json",
+            "type": "get",
+        });
+
+        $.ajaxSetup({
+            "dataType": "json",
+
+        });
+
+        $(document).ajaxStart(() => console.log("全部AJAX请求开始前-1..."));
+        $(document).ajaxStart(() => console.log("全部AJAX请求开始前-2..."));
+        $(document).ajaxSend(() => console.log("AJAX请求发送之前..."));
+        $(document).ajaxSuccess(() => console.log("AJAX请求发送成功时..."));
+        $(document).ajaxComplete(() => console.log("AJAX请求发送完成时..."));
+        $(document).ajaxStop(() => console.log("全部AJAX发送结束..."));
+
+        $.ajax({"global": true, "success": () => console.log("ajax-a发送中...")});
+        $.ajax({"global": true, "success": () => console.log("ajax-b发送中...")});
+        $.ajax({"global": true, "success": () => console.log("ajax-c发送中...")});
+    });
+</script>
+
+</body>
+</html>

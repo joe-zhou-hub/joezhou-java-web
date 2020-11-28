@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            width: 250px;
+            height: 50px;
+            background: red;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="on-sec-a">on挂载：带名函数处理</section>
+<section id="on-sec-b">on挂载：匿名函数处理</section>
+<section id="on-sec-c">on挂载：多种事件，相同处理</section>
+<section id="on-sec-d">on挂载：多种事件，不同处理</section>
+
+<section id="selector-sec">
+    <button id="a-btn" type="button">按钮A</button>
+    <button id="b-btn" type="button">按钮B</button>
+    <button type="button">按钮C</button>
+    <button type="button">按钮D</button>
+</section>
+
+<section id="data-sec">
+    参数data
+</section>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+
+        $("#on-sec-a").on("click", myFunction);
+        $("#on-sec-b").on("click", () => console.log("b-click..."));
+        $("#on-sec-c").on("click mouseout", () => console.log("c-click or c-mouseout..."));
+        $("#on-sec-d").on({
+            "click": () => console.log("d-click..."),
+            "mouseout": () => console.log("d-mouseout..."),
+        });
+
+        let selector = "#a-btn,#b-btn";
+        $("#selector-sec").on("click", selector, () => {
+            console.log("bubble...");
+        });
+
+        let data = {"score": [90, 100, 80], "age": 3};
+        $("#data-sec").on("click", data, ev => {
+            ev = ev || event;
+            console.log("data:", ev.data["score"]);
+        });
+
+    });
+
+
+    function myFunction() {
+        console.log("a-click...");
+    }
+
+</script>
+</body>
+</html>

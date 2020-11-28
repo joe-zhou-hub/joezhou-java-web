@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #propagation-div {
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="propagation-div">
+    <button id="propagation-btn" type="button">事件冒泡</button>
+</div>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+        $("#propagation-btn").click(() => {
+            console.log("propagation-btn...");
+        });
+
+        $("#propagation-div").click(ev => {
+            ev = ev || event;
+            console.log("propagation-div...");
+            ev.stopPropagation();
+        });
+
+        $("body").click(() => {
+            console.log("propagation-body...");
+        });
+    });
+</script>
+
+</body>
+</html>

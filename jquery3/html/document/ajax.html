@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+        $.ajax({
+            "url": "ajax-data.json",
+            "type": "post",
+            "data": {"name": "joe"},
+            "dataType": "json",
+            "async": "true",
+            "success": (response, isSuccess, xhr) => {
+                if ("success" === isSuccess) {
+                    console.log("response:", response);
+                    console.log("xhr:", xhr);
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

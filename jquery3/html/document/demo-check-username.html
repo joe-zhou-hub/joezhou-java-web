@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input id="username-ipt"/></label>
+<span id="username-msg"></span>
+
+<script type="text/javascript" src="../../script/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(() => {
+        let usernameIpt = $("#username-ipt");
+        let usernameMsg = $("#username-msg");
+
+        usernameIpt.blur(() => {
+            $.get("user.json", response => {
+                let isUsed = false;
+                $.each(response["users"], (i, v) => {
+                    if (v === usernameIpt.val()) {
+                        isUsed = true;
+                        return false;
+                    }
+                });
+                if (isUsed) {
+                    usernameMsg.text("帐号已经存在！").css("color", "red");
+                } else {
+                    usernameMsg.text("帐号可以使用！").css("color", "green");
+                }
+            }, "json");
+        });
+    });
+</script>
+
+
+</body>
+</html>
