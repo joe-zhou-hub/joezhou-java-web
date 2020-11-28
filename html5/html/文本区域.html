@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        hr {
+            background: red;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="#" method="get">
+    <label>
+        <span>传值测试：</span>
+        <textarea name="info" cols="30" rows="10">默认值</textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>禁用控件：</span>
+        <textarea name="info" disabled="disabled"></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>控件必填：</span>
+        <textarea name="info" required="required"></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>字数限制：</span>
+        <textarea name="info" maxlength="20"></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>控件只读：</span>
+        <textarea name="info" readonly="readonly"></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>自动焦点：</span>
+        <textarea name="info" autofocus="autofocus"></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>背景提示：</span>
+        <textarea name="info" placeholder="请输入自我介绍..."></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>换行属性：</span>
+        <textarea name="info" wrap="hard"></textarea>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<label>
+    <span>外挂表单：</span>
+    <textarea name="info" form="my-form"></textarea>
+</label>
+<form id="my-form" action="#" method="get">
+    <button>提交</button>
+</form>
+
+</body>
+</html>

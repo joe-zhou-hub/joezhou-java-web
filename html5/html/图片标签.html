@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <img src="../image/test.jpg" alt="该图片走丢了..."/>
+</div>
+
+<div>
+    <a href="#">
+        <img src="../image/test.jpg" ismap="ismap" alt=""/>
+    </a>
+</div>
+
+<div>
+    <img src="../image/test.jpg" ismap="ismap" usemap="#my-map" alt="" style="width: 400px;height: 400px"/>
+    <map name="my-map">
+        <!--rect是矩形-->
+        <area shape="rect" coords="20,25,137,233"
+              href="http://www.baidu.com" target="_blank" alt="百度"/>
+        <!--circle是圆形-->
+        <area shape="circle" coords="276,83,61"
+              href="http://www.zhihu.com" target="_self" alt="知乎"/>
+        <!--ploy是多边形-->
+        <area shape="poly" coords="183,181,227,206,260,177"
+              href="http://www.yahoo.com" target="_blank" alt="雅虎"/>
+    </map>
+</div>
+</body>
+</html>

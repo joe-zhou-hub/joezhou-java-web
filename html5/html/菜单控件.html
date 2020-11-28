@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        hr {
+            background: red;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<label>
+    <span>选项分组：</span>
+    <select>
+        <optgroup label="水果类">
+            <option>香蕉</option>
+            <option>冬枣</option>
+        </optgroup>
+        <optgroup label="粮食组">
+            <option>小米</option>
+            <option>大米</option>
+        </optgroup>
+    </select>
+</label>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>传值测试：</span>
+        <select name="xl">
+            <option value="1">硕士</option>
+            <option value="2">大学</option>
+            <option value="3">大专</option>
+            <option value="4">高中</option>
+            <option value="5">中专</option>
+        </select>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>自动焦点：</span>
+        <select name="xl" autofocus="autofocus">
+            <option value="1">硕士</option>
+            <option value="2">大学</option>
+            <option value="3">大专</option>
+            <option value="4">高中</option>
+            <option value="5">中专</option>
+        </select>
+        <button>提交</button>
+    </label>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>默认选中：</span>
+        <select name="xl">
+            <option value="1">硕士</option>
+            <option value="2">大学</option>
+            <option value="3" selected="selected">大专</option>
+            <option value="4">高中</option>
+            <option value="5">中专</option>
+        </select>
+        <button>提交</button>
+    </label>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>禁用选项：</span>
+        <select name="xl">
+            <option value="1">硕士</option>
+            <option value="2">大学</option>
+            <option value="3">大专</option>
+            <option value="4">高中</option>
+            <option value="5" disabled="disabled">中专</option>
+        </select>
+        <button>提交</button>
+    </label>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <label>
+        <span>多选菜单：</span>
+        <select name="xl" size="3" multiple="multiple">
+            <option value="1">硕士</option>
+            <option value="2">大学</option>
+            <option value="3">大专</option>
+            <option value="4">高中</option>
+            <option value="5">中专</option>
+        </select>
+    </label>
+    <button>提交</button>
+</form>
+<hr/>
+
+<label>
+    <span>外挂表单：</span>
+    <select name="xl" form="my-form">
+        <option value="1">硕士</option>
+        <option value="2">大学</option>
+        <option value="3">大专</option>
+        <option value="4">高中</option>
+        <option value="5">中专</option>
+    </select>
+</label>
+<form id="my-form" action="#" method="get">
+    <button>提交</button>
+</form>
+
+</body>
+</html>

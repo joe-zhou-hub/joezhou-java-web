@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        hr{
+            background: red;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="#" method="get">
+
+    <label>
+        <span>账号：</span>
+        <input name="username"/>
+    </label>
+    <br/>
+
+    <label for="pwd">密码：</label>
+    <input id="pwd" name="password"/>
+    <br/>
+
+    <button>登录</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <fieldset>
+        <legend>基本信息</legend>
+        <label>
+            <input/><br/>
+            <input/><br/>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>详细信息</legend>
+        <label>
+            <input/><br/>
+            <input/><br/>
+            <input/><br/>
+            <input/><br/>
+        </label>
+    </fieldset>
+</form>
+<hr/>
+
+<form id="my-form" action="#" method="get">
+
+    <label>
+        <span>默认值：</span>
+        <input value="默认值"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>禁用：</span>
+        <input name="disabled" value="disabled" disabled="disabled"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>只读：</span>
+        <input name="readonly" value="readonly" readonly="readonly"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>背景字：</span>
+        <input placeholder="背景提示字"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>必填验证：</span>
+        <input name="required" required="required"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>正则验证：</span>
+        <input name="pattern" pattern="\d{5}"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>自动焦点：</span>
+        <input autofocus="autofocus"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>关闭提示：</span>
+        <input autocomplete="off"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>尺寸：</span>
+        <input size="5"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>最大字符：</span>
+        <input maxlength="10"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>快捷焦点：</span>
+        <input accesskey="k"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>切换顺序：</span>
+        <input tabindex="3" value="3"/>
+        <input tabindex="1" value="1"/>
+        <input tabindex="-1" value="-1"/>
+        <input tabindex="2" value="2"/>
+        <input tabindex="4" value="4"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>数据列表：</span>
+        <input list="data"/>
+    </label>
+    <br/>
+
+    <button>提交</button>
+</form>
+
+<label>
+    <span>外挂：</span>
+    <input form="my-form" name="form"/>
+</label>
+
+<datalist id="data">
+    <option>数据选项001</option>
+    <option>数据选项002</option>
+    <option>数据选项003</option>
+</datalist>
+
+<hr/>
+
+<form action="#" method="get">
+
+    <label>
+        <span>单文：</span>
+        <input type="text" name="text"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>密码：</span>
+        <input type="password" name="password"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>单选：</span>
+        <input type="radio" name="gender" value="male" checked="checked"/> 男
+        <input type="radio" name="gender" value="female"/>女
+    </label>
+    <br/>
+
+    <label>
+        <span>多选：</span>
+        <input type="checkbox" name="hobby" value="sing" checked="checked"/>唱歌
+        <input type="checkbox" name="hobby" value="game" checked="checked"/>打游戏
+        <input type="checkbox" name="hobby" value="dancing"/>跳舞
+    </label>
+    <br/>
+
+    <label>
+        <span>文件：</span>
+        <input type="file" name="file" accept="image/x-png"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>隐藏：</span>
+        <input type="hidden" name="hidden" value="hidden-value">
+    </label>
+    <br/>
+
+    <label>
+        <span>搜索：</span>
+        <input type="search" name="search"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>数字：</span>
+        <input type="number" name="number" min="10" max="100" step="2"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>范围：</span>
+        <input type="range" name="range" min="10" max="100" step="1"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>日期：</span>
+        <input type="date" name="date"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>本地：</span>
+        <input type="datetime-local" name="datetime-local">
+    </label>
+    <br/>
+
+    <label>
+        <span>周期：</span>
+        <input type="week" name="week">
+    </label>
+    <br/>
+
+    <label>
+        <span>时间：</span>
+        <input type="time" name="time">
+    </label>
+    <br/><br/>
+
+    <label>
+        <span>月份：</span>
+        <input type="month" name="month">
+    </label>
+    <br/>
+
+    <label>
+        <span>电邮：</span>
+        <input type="email" name="email"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>手机：</span>
+        <input type="tel" name="tel"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>颜色：</span>
+        <input type="color" name="color"/>
+    </label>
+    <br/>
+
+    <label>
+        <span>网址：</span>
+        <input type="url" name="url"/>
+    </label>
+    <br/>
+
+    <button>提交</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        hr {
+            background: red;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="#" method="get">
+    <span>提交按钮：</span>
+    <label>
+        <input name="username" />
+    </label>
+    <button>提交</button>
+    <button type="submit">提交</button>
+    <input type="submit" value="提交" />
+</form>
+<hr/>
+
+<form id="my-form" action="#" method="get">
+    <span>外挂表单：</span>
+    <label>
+        <input name="username" />
+    </label>
+</form>
+<button form="my-form">提交</button>
+<hr/>
+
+<form action="#" method="get" target="_self">
+    <span>覆盖表单：</span>
+    <label>
+        <input name="username" />
+    </label>
+    <button formaction="列表标签.html" formmethod="post" formtarget="_blank">提交</button>
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <span>普通按钮：</span>
+    <button type="button">普通</button>
+    <input type="button" value="普通" />
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <span>重置按钮：</span>
+    <label>
+        <input name="username" />
+    </label>
+    <label>
+        <input name="password" />
+    </label>
+    <button type="reset">重置</button>
+    <input type="reset" value="重置" />
+</form>
+<hr/>
+
+<form action="#" method="get">
+    <span>图片按钮：</span>
+    <label>
+        <input name="username" />
+    </label>
+    <input type="image" src="../image/test.jpg" width="100px" height="100px" alt=""/>
+</form>
+
+</body>
+</html>
