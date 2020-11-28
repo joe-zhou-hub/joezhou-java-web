@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        section {
+            padding: 10px 300px;
+            border-bottom: 5px solid red;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-translate div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #text-by-translate div:hover {
+            transform: translate(-100px, 100px);
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-scale div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #text-by-scale div:hover {
+            transform: scale(2, 0.5);
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-rotate div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-bottom-right-radius: 50%;
+        }
+
+        #text-by-rotate div:hover {
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-skew div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #text-by-skew div:hover {
+            transform: skew(-45deg);
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-all-transform div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #text-by-all-transform div:hover {
+            transform: translate(100px) scale(1.5) rotate(45deg) skew(45deg);
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-origin div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #text-by-origin div:hover {
+            transform-origin: 100px 100px;
+            transform: rotate(45deg);
+        }
+    </style>
+
+
+</head>
+<body>
+<section id="text-by-translate">
+    <div></div>
+</section>
+
+<section id="text-by-scale">
+    <div></div>
+</section>
+
+<section id="text-by-rotate">
+    <div></div>
+</section>
+
+<section id="text-by-skew">
+    <div></div>
+</section>
+
+<section id="text-by-all-transform">
+    <div></div>
+</section>
+
+<section id="text-by-origin">
+    <div></div>
+</section>
+
+</body>
+</html>

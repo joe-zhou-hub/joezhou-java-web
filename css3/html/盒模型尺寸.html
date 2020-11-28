@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        section {
+            padding: 10px;
+            border-bottom: 5px solid red;
+        }
+
+        div {
+            background: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-height div {
+            height: 200px;
+        }
+    </style>
+
+    <style type="text/css">
+
+        #text-by-width p {
+            width: 300px;
+            background: yellowgreen;
+        }
+
+        #text-by-width div {
+            width: 200px;
+            height: 200px;
+            max-height: 300px;
+            max-width: 300px;
+        }
+
+        #text-by-width div:hover {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-resize div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            overflow: auto;
+            resize: horizontal;
+        }
+
+        #text-by-resize textarea {
+            resize: both;
+        }
+    </style>
+
+</head>
+<body>
+
+<section id="text-by-height">
+    <div></div>
+</section>
+
+<section id="text-by-width">
+    <p>300px</p>
+    <div></div>
+</section>
+
+<section id="text-by-resize">
+    <div></div>
+    <label>
+        <textarea></textarea>
+    </label>
+</section>
+
+</body>
+</html>

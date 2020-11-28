@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            border-bottom: 10px solid black;
+        }
+    </style>
+
+    <style type="text/css">
+        * {
+            background: gray;
+        }
+    </style>
+
+    <style type="text/css">
+        article {
+            color: purple;
+        }
+    </style>
+
+    <style type="text/css">
+        #part1 {
+            color: yellow;
+        }
+
+        #part2 {
+            color: yellowgreen;
+        }
+    </style>
+
+    <style type="text/css">
+        .to-red {
+            color: red;
+        }
+
+        .larger {
+            font-size: larger;
+        }
+    </style>
+
+    <style type="text/css">
+        [href] {
+            color: red;
+        }
+
+        [class="b"] {
+            color: green;
+        }
+
+        [href^="http://"] {
+            color: yellow;
+        }
+
+        [href$=".com"] {
+            font-size: larger;
+        }
+
+        [href*="a"] {
+            color: #FF9800;
+        }
+
+        [class~="b"] {
+            color: blue;
+        }
+
+        [lang|="en"] {
+            color: deeppink;
+        }
+
+    </style>
+</head>
+<body>
+
+<section id="test-by-tag">
+    <article>葡萄美酒夜光杯</article>
+    <article>欲饮琵琶马上催</article>
+    <article>醉卧沙场君莫笑</article>
+    <article>古来征战几人回</article>
+</section>
+
+<section id="test-by-id">
+    <p id="part1">死去元知万事空</p>
+    <!--<p id="part1">但悲不见九州同</p>-->
+    <p id="part2">王师北定中原日</p>
+    <!--<p id="part2">家祭无忘告乃翁</p>-->
+</section>
+
+<section id="test-by-class">
+    <aside class="to-red">葡萄美酒夜光杯</aside>
+    <aside class="to-red">欲饮琵琶马上催</aside>
+    <aside class="to-red">醉卧沙场君莫笑</aside>
+    <aside class="to-red larger">古来征战几人回</aside>
+</section>
+
+<section id="test-by-field">
+    <a class="a b c">这是一个没有href的超链接</a><br/>
+    <a class="b">这是一个没有href的超链接</a><br/>
+    <a href="http://www.baidu.com">点我跳入百度</a><br/>
+    <a href="http://www.w3school.com">点我跳入w3school</a><br/>
+    <a href="a.html">点我跳入a.html</a><br/>
+    <a lang="en-US">I am a student！</a>
+    <a lang="en">I am a teacher！</a>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #test-by-not a:not([href*="bai"]) {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-empty div:empty {
+            border: 10px solid red;
+            height: 100px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-lang p:lang(en) {
+            border: 1px solid red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-target div {
+            height: 1000px;
+        }
+
+        #test-by-target p:target {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<section id="test-by-not">
+    <a>百度</a>
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://w3school.com">w3school</a>
+    <a href="http://w3school.com">w3school</a>
+</section>
+
+<section id="test-by-empty">
+    <div>123</div>
+    <div></div>
+</section>
+
+<section id="test-by-lang">
+    <p>123</p>
+    <p lang="zh-CN">456</p>
+</section>
+
+<section id="test-by-target">
+    <p id="abc">锚点</p>
+    <div></div>
+    <a href="#abc">点我跳回锚点</a>
+</section>
+</body>
+</html>

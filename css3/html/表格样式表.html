@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            padding: 10px;
+            border-bottom: 5px solid red;
+        }
+
+        table, td, th {
+            border: 1px solid red;
+        }
+    </style>
+    <style type="text/css">
+        #text-by-border-collapse table {
+            border-collapse: collapse;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-border-spacing table {
+            border-spacing: 20px;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-caption-side table {
+            caption-side: bottom;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-empty-cells table {
+            empty-cells: hide;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-table-layout table {
+            width: 300px;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<section id="text-by-border-collapse">
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>赵四</td>
+            <td>58</td>
+            <td>男</td>
+        </tr>
+    </table>
+</section>
+
+<section id="text-by-border-spacing">
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>赵四</td>
+            <td>58</td>
+            <td>男</td>
+        </tr>
+    </table>
+</section>
+
+<section id="text-by-caption-side">
+    <table>
+        <caption>人员表</caption>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>赵四</td>
+            <td>58</td>
+            <td>男</td>
+        </tr>
+    </table>
+</section>
+
+<section id="text-by-empty-cells">
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>赵四</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</section>
+
+<section id="text-by-table-layout">
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>尼古拉斯------------赵四</td>
+            <td>58</td>
+            <td>男</td>
+        </tr>
+    </table>
+</section>
+
+</body>
+</html>

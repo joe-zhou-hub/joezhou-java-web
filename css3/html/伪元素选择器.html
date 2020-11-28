@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #test-by-first-line p::first-line {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-first-letter p::first-letter {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-before a::before {
+            content: "中华";
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-after p::after {
+            content: "卫士";
+        }
+    </style>
+</head>
+<body>
+
+<section id="test-by-first-line">
+    <p>当你走进这欢乐场，背上所有的梦与想，各色的脸上各色的妆，没人记得你的模样</p>
+    <p>三巡酒过你在角落，固执的唱着苦涩的歌，听他在喧嚣里被淹没，你拿起酒杯对自己说</p>
+</section>
+
+<section id="test-by-first-letter">
+    <p>一杯敬朝阳，一杯敬月光，唤醒我的向往，温柔了寒窗</p>
+    <p>于是可以不回头的逆风飞翔，不怕心头有雨，眼底有霜</p>
+    <p>一杯敬故乡，一杯敬远方，守着我的善良，催着我成长</p>
+    <p>所以南北的路从此不再漫长，灵魂不再无处安放</p>
+    <p>一杯敬明天，一杯敬过往，支撑我的身体，厚重了肩膀</p>
+    <p>虽然从不相信所谓山高水长，人生苦短何必念念不忘</p>
+    <p>一杯敬自由，一杯敬死亡，宽恕我的平凡，驱散了迷惘</p>
+    <p>好吧天亮之后总是潦草离场，清醒的人最荒唐</p>
+</section>
+
+<section id="test-by-before">
+    <a href="#">人民</a>
+</section>
+
+<section id="test-by-after">
+    <p>人民</p>
+</section>
+
+</body>
+</html>

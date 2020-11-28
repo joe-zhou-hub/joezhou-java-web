@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        header, .a, #b {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #cao-cao div {
+            border: 1px solid red;
+            margin: 10px;
+        }
+    </style>
+
+    <style type="text/css">
+        #er-er-zi > div {
+            border: 1px solid red;
+            margin: 10px;
+        }
+    </style>
+
+    <style type="text/css">
+        p + div {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        h1 ~ p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<section id="test-by-group">
+    <header>秦时明月汉时关</header>
+    <header class="a">万里长征人未还</header>
+    <footer class="a">但使龙城飞将在</footer>
+    <footer id="b">不教胡马度阴山</footer>
+</section>
+
+<section id="test-by-all-child">
+    <div id="ying-zheng">
+        <div>扶苏</div>
+        <div>胡亥</div>
+    </div>
+    <div id="cao-cao">
+        <div>曹丕
+            <div>曹叡</div>
+        </div>
+        <div>曹植</div>
+    </div>
+</section>
+
+<section id="test-by-son">
+    <div id="fu-qin">父亲
+        <div id="da-er-zi">大儿子</div>
+        <div id="er-er-zi">二儿子
+            <div id="da-sun-zi">大孙子</div>
+            <div id="er-sun-zi">二孙子
+                <div id="da-chong-sun-zi">大重孙子</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="test-by-first-brother">
+    <div>声声慢</div>
+    <p>寻寻觅觅，冷冷清清，凄凄惨惨戚戚。</p>
+    <div>乍暖还寒时候，最难将息。</div>
+    <div>三杯两盏淡酒，怎敌他晚来风急？</div>
+    <p>雁过也，正伤心，却是旧时相识。</p>
+    <p>满地黄花堆积，憔悴损，如今有谁堪摘？</p>
+    <p>守着窗儿，独自怎生得黑？</p>
+    <p>梧桐更兼细雨，到黄昏点点滴滴。</p>
+    <p>这次第，怎一个愁字了得！</p>
+</section>
+
+<section id="test-by-all-brother">
+    <p>这是一首诗歌</p>
+    <p>作者是李白</p>
+    <h1>静夜思</h1>
+    <div>窗前明月光</div>
+    <p>疑是地上霜</p>
+    <p>举头望明月</p>
+    <p>低头思故乡</p>
+</section>
+
+</body>
+</html>

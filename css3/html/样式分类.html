@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../style/样式分类.css"/>
+    <style type="text/css">
+        #internal-test-p {
+            color: green;
+        }
+
+        #priority-test-span {
+            color: blue;
+            background: gray;
+        }
+
+        #important-test-p {
+            /*显示green 因为!important生效了*/
+            color: green;
+        !important color: red;
+        }
+
+        #important-test-div {
+            /*显示blue 因为!important失效了*/
+            color: gray;
+        !important color: black;
+            color: blue;
+        }
+
+        #fu {
+            background: red;
+            color: white;
+            border: 10px solid yellow;
+        }
+    </style>
+</head>
+<body>
+
+<p>浏览器样式</p>
+
+<p style="color: red;">内嵌样式</p>
+
+<p id="internal-test-p">内部样式</p>
+
+<p id="external-test-p">外部样式</p>
+
+<span id="priority-test-span" style="color: sandybrown;">优先级</span>
+
+<p id="important-test-p">文本p</p>
+
+<div id="important-test-div">文本div</div>
+
+<section id="fu">
+    父标签
+    <p id="zi">子标签</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+        #text-by-z-index div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #text-by-z-index div:nth-child(1) {
+            background-color: green;
+            top: 100px;
+            left: 100px;
+            z-index: 2;
+        }
+
+        #text-by-z-index div:nth-child(2) {
+            background-color: yellow;
+            top: 150px;
+            left: 150px;
+            z-index: 1;
+        }
+
+        #text-by-z-index div:nth-child(3) {
+            background-color: blue;
+            top: 200px;
+            left: 200px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+<section id="text-by-z-index">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            padding: 10px;
+            border-bottom: 5px solid red;
+        }
+
+        div {
+            background: red;
+        }
+    </style>
+    <style type="text/css">
+        #text-by-block div {
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-inline div {
+            width: 100px;
+            height: 100px;
+            display: inline;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-inline-block div {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-none div {
+            width: 100px;
+            height: 100px;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<section id="text-by-block">
+    <div>区块</div>
+    <span>后续内容</span>
+</section>
+
+<section id="text-by-inline">
+    <div>内联</div>
+    <span>后续内容</span>
+</section>
+
+<section id="text-by-inline-block">
+    <div>内联块</div>
+    <span>后续内容</span>
+</section>
+
+<section id="text-by-none">
+    <div>隐藏</div>
+    <span>后续内容</span>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #test-by-first-child li:first-child {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-last-child li:last-child {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-only-child span:only-child {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-only-of-type span:only-of-type {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-nth-child li:nth-child(3) {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-nth-last-child li:nth-last-child(3) {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-nth-of-type div:nth-of-type(3) {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-nth-of-last-type div:nth-last-of-type(3) {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<section id="test-by-first-child">
+    <ul>
+        <li>吃</li>
+        <li>喝</li>
+        <li>玩</li>
+        <li>乐</li>
+    </ul>
+</section>
+
+<section id="test-by-last-child">
+    <ul>
+        <li>吃</li>
+        <li>喝</li>
+        <li>玩</li>
+        <li>乐</li>
+    </ul>
+</section>
+
+<section id="test-by-only-child">
+    <div>
+        <span>1</span>
+    </div>
+    <div>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <div>
+        <strong>4</strong>
+        <span>5</span>
+    </div>
+</section>
+
+<section id="test-by-only-of-type">
+    <div>
+        <span>1</span>
+    </div>
+    <div>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <div>
+        <strong>4</strong>
+        <span>5</span>
+    </div>
+</section>
+
+<section id="test-by-nth-child">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</section>
+
+<section id="test-by-nth-last-child">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</section>
+
+<section id="test-by-nth-of-type">
+    <article>
+        <div>div-01</div>
+        <div>div-02</div>
+        <p>p-03</p>
+        <div>div-04</div>
+        <div>div-05</div>
+    </article>
+</section>
+
+<section id="test-by-nth-of-last-type">
+    <article>
+        <div>div-01</div>
+        <div>div-02</div>
+        <p>p-03</p>
+        <div>div-04</div>
+        <div>div-05</div>
+    </article>
+</section>
+
+</body>
+</html>

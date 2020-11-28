@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            padding: 10px;
+            border-bottom: 5px solid red;
+        }
+
+        div {
+            background: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-hidden div {
+            width: 200px;
+            height: 200px;
+            visibility: hidden;
+        }
+    </style>
+
+    <style type="text/css">
+        #text-by-collapse table {
+            width: 200px;
+            height: 200px;
+            visibility: collapse;
+        }
+    </style>
+
+</head>
+<body>
+
+<section id="text-by-hidden">
+    <div>可见性</div>
+    <span>后续内容</span>
+</section>
+
+<section id="text-by-collapse">
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tr>
+            <td>赵四</td>
+            <td>58</td>
+        </tr>
+    </table>
+    <span>后续内容</span>
+</section>
+
+</body>
+</html>

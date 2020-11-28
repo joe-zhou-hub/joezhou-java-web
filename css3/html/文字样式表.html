@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            padding: 10px;
+            border-bottom: 5px solid red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-color div:nth-child(1) {
+            color: red;
+        }
+
+        #test-by-color div:nth-child(2) {
+            color: #FF9800;
+        }
+
+        #test-by-color div:nth-child(3) {
+            color: rgb(255, 0, 0);
+        }
+
+        #test-by-color div:nth-child(4) {
+            color: rgba(255, 0, 0, 0.5);
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-variant div {
+            font-variant: small-caps;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-style div {
+            font-style: italic;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-weight div {
+            font-weight: bold;
+        }
+    </style>
+
+    <style type="text/css">
+
+        html {
+            font-size: 20px
+        }
+
+        section {
+            font-size: 20px;
+        }
+
+        #test-by-size div:nth-child(2) {
+            font-size: xx-large;
+        }
+
+        #test-by-size div:nth-child(3) {
+            font-size: xx-small;
+        }
+
+        #test-by-size div:nth-child(4) {
+            font-size: larger;
+        }
+
+        #test-by-size div:nth-child(5) {
+            font-size: smaller;
+        }
+
+        #test-by-size div:nth-child(6) {
+            font-size: 15px;
+        }
+
+        #test-by-size div:nth-child(7) {
+            font-size: 200%;
+        }
+
+        #test-by-size div:nth-child(8) {
+            font-size: 0.5em;
+        }
+
+        #test-by-size div:nth-child(9) {
+            font-size: 2rem;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-family div {
+            font-family: 楷体, 宋体, serif;
+        }
+
+        @font-face {
+            font-family: my-consola;
+            src: url("../font/consola.ttf");
+        }
+
+        #test-by-family p {
+            font-family: my-consola, serif;
+        }
+    </style>
+
+</head>
+<body>
+
+<section id="test-by-color">
+    <div>word</div>
+    <div>hex</div>
+    <div>rgb</div>
+    <div>rgba</div>
+</section>
+
+<section id="test-by-variant">
+    <div>small-caps</div>
+</section>
+
+<section id="test-by-style">
+    <div>文字倾斜</div>
+</section>
+
+<section id="test-by-weight">
+    <div>文字加粗</div>
+</section>
+
+<section id="test-by-size">
+    <div>正常文字大小</div>
+    <div>预设值xx-large</div>
+    <div>预设值xx-small</div>
+    <div>大一号larger</div>
+    <div>小一号smaller</div>
+    <div>像素值15px</div>
+    <div>百分比200%</div>
+    <div>相对父元素比例0.5</div>
+    <div>相对html比例2</div>
+</section>
+
+<section id="test-by-family">
+    <div>客户端字体-宋体</div>
+    <div>客户端字体-楷体</div>
+    <p>服务端字体-aaaaa</p>
+    <p>服务端字体-iiiii</p>
+</section>
+
+</body>
+</html>

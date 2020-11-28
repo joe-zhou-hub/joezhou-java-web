@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        section {
+            padding: 10px;
+            border-bottom: 5px solid red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-decoration p:nth-child(1) {
+            text-decoration: underline;
+        }
+
+        #test-by-decoration p:nth-child(2) {
+            text-decoration: line-through;
+        }
+
+        #test-by-decoration p:nth-child(3) {
+            text-decoration: overline;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-transform div:nth-child(1) {
+            text-transform: uppercase;
+        }
+
+        #test-by-transform div:nth-child(2) {
+            text-transform: lowercase;
+        }
+
+        #test-by-transform div:nth-child(3) {
+            text-transform: capitalize;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-shadow div {
+            text-shadow: 2px -2px 2px red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-indent p:nth-child(1) {
+            text-indent: 10px;
+        }
+
+        #test-by-indent p:nth-child(2) {
+            text-indent: 20px;
+        }
+
+        #test-by-indent p:nth-child(3) {
+            text-indent: 30px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-align p:nth-child(1) {
+            text-align: left;
+        }
+
+        #test-by-align p:nth-child(2) {
+            text-align: center;
+        }
+
+        #test-by-align p:nth-child(3) {
+            text-align: right;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-white-space p {
+            width: 100px;
+            border: 1px solid red;
+        }
+
+        #test-by-white-space p:nth-child(1) {
+            white-space: nowrap;
+        }
+
+        #test-by-white-space p:nth-child(2) {
+            white-space: pre;
+        }
+
+        #test-by-white-space p:nth-child(3) {
+            white-space: pre-line;
+        }
+
+        #test-by-white-space p:nth-child(4) {
+            white-space: pre-wrap;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-word-wrap p {
+            width: 100px;
+            border: 1px solid red;
+        }
+
+        #test-by-word-wrap p:nth-child(1) {
+            word-wrap: break-word;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-letter-spacing p {
+            letter-spacing: 20px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-word-spacing p {
+            word-spacing: 20px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-line-height p {
+            line-height: 200px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-over-flow p {
+            width: 100px;
+            border: 1px solid red;
+            white-space: nowrap;
+        }
+
+        #test-by-over-flow p:nth-child(1) {
+            overflow: auto;
+        }
+
+        #test-by-over-flow p:nth-child(2) {
+            overflow: hidden;
+        }
+
+        #test-by-over-flow p:nth-child(3) {
+            overflow: scroll;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-text-over-flow p {
+            width: 100px;
+            border: 1px solid red;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #test-by-text-over-flow p:nth-child(1) {
+            text-overflow: clip;
+        }
+
+        #test-by-text-over-flow p:nth-child(2) {
+            text-overflow: ellipsis;
+        }
+    </style>
+
+</head>
+<body>
+
+<section id="test-by-decoration">
+    <p>文本线条-下划线</p>
+    <p>文本线条-删除线</p>
+    <p>文本线条-上划线</p>
+</section>
+
+<section id="test-by-transform">
+    <div>I am JoeZhou</div>
+    <div>I am JoeZhou</div>
+    <div>I am JoeZhou</div>
+</section>
+
+<section id="test-by-shadow">
+    <div>中华人民是最伟大的民族</div>
+</section>
+
+<section id="test-by-indent">
+    <p>中华人民是最伟大的民族</p>
+    <p>中华人民是最伟大的民族</p>
+    <p>中华人民是最伟大的民族</p>
+</section>
+
+<section id="test-by-align">
+    <p>文本-左对齐</p>
+    <p>文本-居中</p>
+    <p>文本-右对齐</p>
+</section>
+
+<section id="test-by-white-space">
+    <p>中华 人民<br/>是最伟大的民族</p>
+    <p>中华 人民<br/>是最伟大的民族</p>
+    <p>中华 人民<br/>是最伟大的民族</p>
+    <p>中华 人民<br/>是最伟大的民族</p>
+</section>
+
+<section id="test-by-word-wrap">
+    <p>heeeeeeeeeeeeello</p>
+    <p>heeeeeeeeeeeeello</p>
+</section>
+
+<section id="test-by-letter-spacing">
+    <p>中华人民是最伟大的民族</p>
+</section>
+
+<section id="test-by-word-spacing">
+    <p>中华人民 是 最伟大的 民族</p>
+</section>
+
+<section id="test-by-line-height">
+    <p>中华人民是最伟大的民族</p>
+</section>
+
+<section id="test-by-over-flow">
+    <p>中华人民是最伟大的民族</p>
+    <p>中华人民是最伟大的民族</p>
+    <p>中华人民是最伟大的民族</p>
+</section>
+
+<section id="test-by-text-over-flow">
+    <p><a href="#">中华人民是最伟大的民族</a></p>
+    <p><a href="#">中华人民是最伟大的民族</a></p>
+</section>
+
+</body>
+</html>

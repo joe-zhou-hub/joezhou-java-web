@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        section {
+            border-bottom: 5px solid gray;
+            padding: 5px 0;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-enable button:enabled {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-disabled button:disabled {
+            color: red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-checked input:checked {
+            height: 50px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-default input:default {
+            height: 50px;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-valid input:valid {
+            border: 5px solid green;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-invalid input:invalid {
+            border: 5px solid red;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-required input:required {
+            border: 5px solid yellowgreen;
+        }
+    </style>
+
+    <style type="text/css">
+        #test-by-optional input:optional {
+            border: 5px solid black;
+        }
+    </style>
+
+</head>
+<body>
+
+<section id="test-by-enable">
+    <button>普通按钮</button>
+    <button disabled="disabled">禁用按钮</button>
+</section>
+
+<section id="test-by-disabled">
+    <button>普通按钮</button>
+    <button disabled="disabled">禁用按钮</button>
+</section>
+
+<section id="test-by-checked">
+    <label>
+        <input type="checkbox"/>
+        <input type="checkbox" checked="checked"/>
+    </label>
+</section>
+
+<section id="test-by-default">
+    <label>
+        <input type="checkbox"/>
+        <input type="checkbox" checked="checked"/>
+    </label>
+</section>
+
+<section id="test-by-valid">
+    <label>
+        <input required="required"/>
+    </label>
+</section>
+
+<section id="test-by-invalid">
+    <label>
+        <input required="required"/>
+    </label>
+</section>
+
+<section id="test-by-required">
+    <label>
+        <input required="required"/>
+        <input/>
+    </label>
+</section>
+
+<section id="test-by-optional">
+    <label>
+        <input required="required"/>
+        <input/>
+    </label>
+</section>
+
+</body>
+</html>
