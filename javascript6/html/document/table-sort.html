@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #user-tab, td, th {
+            width: 400px;
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <table id="user-tab">
+        <tr>
+            <th id="sort-by-id">编号</th>
+            <th id="sort-by-name">姓名</th>
+            <th id="sort-by-age">年龄</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>赵四</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>刘能</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>广坤</td>
+            <td>13</td>
+        </tr>
+    </table>
+</section>
+
+<script type="text/javascript">
+
+    /* 需求：按照表格第二列的序号进行升降序排列切换。*/
+    /* 思路：
+    1. 设置标志位isDescending，表示升序或降序。
+    2. 获取排序<th>并且挂载点击事件。
+    3. 新建一个空数组trArray，因为只有数组可以调用sort()方法。
+    4. 遍历<tbody>中的每一个<tr>，并且将它们都push到trArray中。
+    5. 用数组中的每个<tr>的第二个<td>中的内容进行比较和排序。
+    6. 排序后，将数组中的所有<tr>重新追加到<tbody>中。
+    7. 改变标志，方便循环点击排序。
+    */
+    let tbody;
+    let isDescending = false;
+    window.onload = () => {
+        tbody = document.querySelector("#user-tab").tBodies[0];
+        document.querySelector("#sort-by-id").onclick = () => {
+            numberSort(getTrArray(), 0);
+        };
+        document.querySelector("#sort-by-name").onclick = () => {
+            stringSort(getTrArray(), 1)
+        };
+        document.querySelector("#sort-by-age").onclick = () => {
+            numberSort(getTrArray(), 2)
+        };
+    };
+
+    function getTrArray() {
+        let trArray = [];
+        let trs = tbody.rows;
+        for (let i = 1, j = trs.length; i < j; i++) {
+            trArray.push(trs[i]);
+        }
+        return trArray;
+    }
+
+    function numberSort(trArray, cellNumber) {
+        trArray.sort((tr01, tr02) => {
+            let id01Text = tr01.cells[cellNumber].innerText;
+            let id02Text = tr02.cells[cellNumber].innerText;
+            return isDescending ? id01Text - id02Text : id02Text - id01Text;
+        });
+        appendToTbody(trArray);
+    }
+
+    function stringSort(trArray, cellNumber) {
+        trArray.sort((tr01, tr02) => {
+            let id01Text = tr01.cells[cellNumber].innerText;
+            let id02Text = tr02.cells[cellNumber].innerText;
+            return isDescending ? id02Text.localeCompare(id01Text, "zh-CN") : id01Text.localeCompare(id02Text, "zh-CN");
+        });
+        appendToTbody(trArray);
+    }
+
+    function appendToTbody(trArray) {
+        for (let i = 0, j = trArray.length; i < j; i++) {
+            tbody.appendChild(trArray[i]);
+        }
+        isDescending = !isDescending;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #user-tab {
+            width: 1000px;
+            table-layout: fixed;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        #user-tab, td, th {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <label><input id="name-ipt" placeholder="input your name..."/></label>
+    <label><input id="age-ipt" placeholder="input your age..."/></label>
+    <button id="create-btn" type="button">添加</button>
+    <button id="delete-btn" type="button">删除</button>
+</section>
+<hr/>
+<section>
+    <table id="user-tab">
+        <tr>
+            <th><label><input type="checkbox"></label></th>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td><label><input type="checkbox" disabled="disabled"></label></td>
+            <td>001</td>
+            <td>zhaosi</td>
+            <td>11</td>
+            <td></td>
+        </tr>
+    </table>
+</section>
+
+<script type="text/javascript">
+    let tbody;
+    window.onload = () => {
+        tbody = document.querySelector("#user-tab").tBodies[0];
+        document.querySelector("#create-btn").onclick = () => createData();
+        document.querySelector("#delete-btn").onclick = () => deleteData();
+    };
+
+    /*需求：点击添加按钮，可以添加一条数据。*/
+    function createData() {
+        let tr, td;
+
+        tr = document.createElement("tr");
+        tbody.appendChild(tr);
+
+        td = document.createElement("td");
+        td.innerHTML = `<label><input type="checkbox" name="cbs"/></label>`;
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.innerText = "00" + tbody.rows.length;
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.innerText = document.querySelector("#age-ipt")["value"];
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.innerText = document.querySelector("#name-ipt")["value"];
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        let updateA = document.createElement("a");
+        updateA["href"] = "javascript:";
+        updateA.innerText = "修改";
+        updateA.onclick = () => updateData(updateA);
+        td.appendChild(updateA);
+        tr.appendChild(td);
+    }
+
+    /*需求：点击修改按钮，可以修改姓名和年龄。*/
+    function updateData(updateA) {
+        let nameTd = updateA.parentNode.parentNode.children[2];
+        let ageTd = updateA.parentNode.parentNode.children[3];
+        let updateTd = updateA.parentNode.parentNode.children[4];
+        nameTd.innerHTML = `<input value="${nameTd.innerHTML}"/>`;
+        ageTd.innerHTML = `<input value="${ageTd.innerHTML}"/>`;
+
+        let okA = document.createElement("a");
+        okA["href"] = "javascript:";
+        okA.innerText = "确定";
+        updateTd.innerHTML = "";
+        updateTd.appendChild(okA);
+        okA.onclick = () => {
+            nameTd.innerHTML = nameTd.children[0]["value"];
+            ageTd.innerHTML = ageTd.children[0]["value"];
+            updateTd.innerHTML = "";
+            updateTd.appendChild(updateA);
+        };
+    }
+
+    /*需求：勾选每一行的checkbox后，点击删除按钮可以进行批量删除。*/
+    function deleteData() {
+        let cbs = document.querySelectorAll("input[name=cbs]:checked");
+        if (cbs.length <= 0) {
+            alert("至少选择一项！");
+            return;
+        }
+        let response = confirm(`您将有条${cbs.length}数据被删除，确认吗？`);
+        if (response) {
+            for (let i = 0, j = cbs.length; i < j; i++) {
+                tbody.removeChild(cbs[i].parentNode.parentNode.parentNode);
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

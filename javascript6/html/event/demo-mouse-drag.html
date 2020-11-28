@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #ball {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<section id="ball"></section>
+
+<script type="text/javascript">
+    window.onload = () => {
+        let ball = document.querySelector("#ball");
+
+        /*鼠标按下时，计算l和t这两个恒定值*/
+        ball.onmousedown = (ev) => {
+            ev = ev || event;
+            let l = ev.clientX - ball.offsetLeft;
+            let t = ev.clientY - ball.offsetTop;
+
+            /*在鼠标按下的前提下移动**/
+            document.onmousemove = (ev) => {
+                ev = ev || event;
+                ball["style"]["left"] = ev.clientX - l + "px";
+                ball["style"]["top"] = ev.clientY - t + "px";
+            };
+
+            /*在鼠标按下的前提下抬起*/
+            document.onmouseup = () => document.onmousemove = null;
+
+        }
+    };
+</script>
+</body>
+</html>

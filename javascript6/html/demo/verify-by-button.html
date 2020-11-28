@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+    <form id="login-form" method="get" action="#">
+        <label>
+            <span>账号：</span>
+            <input id="username-ipt" type="text" name="username"/>
+        </label>
+        <label>
+            <span>密码：</span>
+            <input id="password-ipt" type="password" name="password"/>
+        </label>
+        <button id="login-btn" type="button">登录</button>
+    </form>
+</section>
+
+<script type="text/javascript">
+    /*需求：提交表单前，对表单的账号密码进行空值校验，登录按钮为提交按钮。*/
+    onload = () => {
+
+        let usernameIpt = document.querySelector("#username-ipt");
+        usernameIpt.focus();
+
+        let loginBtn = document.querySelector("#login-btn");
+        loginBtn.onclick = () => {
+
+            if ("" === usernameIpt["value"] || null === usernameIpt["value"]) {
+                alert("账号不能为空！");
+                usernameIpt.focus();
+                return;
+            }
+
+            let passwordIpt = document.querySelector("#password-ipt");
+            if ("" === passwordIpt["value"] || null === passwordIpt["value"]) {
+                alert("密码不能为空！");
+                passwordIpt.focus();
+                return;
+            }
+
+            document.querySelector("#login-form").submit();
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #board {
+            width: 1000px;
+            height: 500px;
+            outline: 5px solid gray;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        #car {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<section id="board">
+    <section id="car"></section>
+</section>
+
+<script type="text/javascript">
+    const [leftKey, topKey, rightKey, bottomKey] = [37, 38, 39, 40];
+    const [horizontalStep, verticalStep] = [50, 50];
+    const [carWidth, carHeight] = [50, 50];
+    const [boardWidth, boardHeight] = [1000, 500];
+
+    /*用键盘的上下左右键控制单个section移动。*/
+    window.onload = () => {
+        let car = document.querySelector("#car");
+        document.onkeydown = (ev) => {
+            ev = ev || event;
+            switch (ev.keyCode) {
+                case leftKey :
+                    if (car.offsetLeft <= 0) return;
+                    car["style"]["left"] = car.offsetLeft - horizontalStep + "px";
+                    break;
+                case topKey :
+                    if (car.offsetTop <= 0) return;
+                    car["style"]["top"] = car.offsetTop - verticalStep + "px";
+                    break;
+                case rightKey :
+                    if (car.offsetLeft >= boardWidth - carWidth) return;
+                    car["style"]["left"] = car.offsetLeft + horizontalStep + "px";
+                    break;
+                case bottomKey :
+                    if (car.offsetTop >= boardHeight - carHeight) return;
+                    car["style"]["top"] = car.offsetTop + verticalStep + "px";
+                    break;
+            }
+        }
+    };
+</script>
+
+</body>
+</html>

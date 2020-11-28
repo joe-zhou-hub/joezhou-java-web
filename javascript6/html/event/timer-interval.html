@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #screen {
+            width: 250px;
+            height: 50px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<section id="screen"></section>
+<button id="start-btn">开启周期定时器</button>
+<button id="stop-btn">停止周期定时器</button>
+
+<script type="text/javascript">
+    window.onload = () => {
+        let timer01;
+        let screen = document.querySelector("#screen");
+        let startBtn = document.querySelector("#start-btn");
+        startBtn.onclick = () => {
+            timer01 = setInterval(() => {
+                screen.innerHTML = `${new Date().getSeconds()}`;
+            }, 1000);
+        };
+
+        let stopBtn = document.querySelector("#stop-btn");
+        stopBtn.onclick = () => {
+            clearInterval(timer01);
+        };
+    }
+</script>
+</body>
+</html>

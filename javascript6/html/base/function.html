@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="closure-btn" type="button">闭包测试</button>
+<br/>
+<button id="es5-function-btn" type="button">ES5函数定义</button>
+<br/>
+<button id="es6-function-btn" type="button">ES6函数定义</button>
+<br/>
+
+<script type="text/javascript">
+
+    document.querySelector("#closure-btn").onclick = () => {
+        let outer = "outer";
+
+        function inner() {
+            let inner = "inner";
+            console.log(outer);
+        }
+
+        inner();
+
+        console.log(inner);
+    };
+
+    document.querySelector("#es5-function-btn").onclick = () => {
+        console.log(es5FunctionA());
+        console.log(es5FunctionB());
+        console.log(es5FunctionC(1, 2));
+        console.log(es5FunctionD(3, 4));
+    };
+
+    document.querySelector("#es6-function-btn").onclick = () => {
+        console.log(es6FunctionA());
+        console.log(es6FunctionB());
+        console.log(es6FunctionC("hello"));
+        console.log(es6FunctionD(5, 6));
+        console.log(es6FunctionE("hello"));
+        console.log(es6FunctionF());
+        console.log(es6FunctionG(7, 8));
+    };
+
+    /*no param, no return*/
+    function es5FunctionA() {
+        console.log("es5FunctionA");
+    }
+
+    /*no param*/
+    function es5FunctionB() {
+        console.log("es5FunctionB");
+        return "es5FunctionB";
+    }
+
+    /*no return*/
+    function es5FunctionC(numA, numB) {
+        console.log(numA, numB);
+    }
+
+    /*complete*/
+    function es5FunctionD(numA, numB) {
+        return numA + numB;
+    }
+
+    /*no param, no return*/
+    let es6FunctionA = () => {
+        console.log("es6FunctionA");
+    };
+
+    /*no param*/
+    let es6FunctionB = () => {
+        console.log("es6FunctionB");
+        return "es6FunctionB";
+    };
+
+    /*no return*/
+    let es6FunctionC = (num) => {
+        console.log(num);
+    };
+
+    /*complete*/
+    let es6FunctionD = (numA, numB) => {
+        return numA + numB;
+    };
+
+    /*Omit "()": when only one param*/
+    let es6FunctionE = num => {
+        console.log(num);
+    };
+
+    /*Omit "{}": when only one-line code in "{}"*/
+    let es6FunctionF = () => console.log("es6FunctionF");
+
+    /*Omit "return": when only one-line code in "{}" and has "return"*/
+    let es6FunctionG = (numA, numB) => numA + numB;
+
+</script>
+</body>
+</html>

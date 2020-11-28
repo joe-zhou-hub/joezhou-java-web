@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="close-window-btn" type="button">关闭本窗口</button>
+
+<iframe src="close-window-inner.html"></iframe>
+
+<script type="text/javascript">
+    /*需求：点击按钮，关闭当前窗口。*/
+    onload = () => {
+        let closeWindowBtn = document.querySelector("#close-window-btn");
+
+        /*类似Java的Lambda表达式，如果箭头函数体中只有一行代码，可以省略大括号。*/
+        closeWindowBtn.onclick = () => close();
+    };
+</script>
+
+</body>
+</html>

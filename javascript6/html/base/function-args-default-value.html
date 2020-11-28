@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="const-btn" type="button">使用常量作为默认值</button>
+<br/>
+<button id="variable-btn" type="button">使用变量作为默认值</button>
+<br/>
+<button id="expression-btn" type="button">使用表达式作为默认值</button>
+<br/>
+<button id="function-btn" type="button">使用函数调用作为默认值</button>
+<br/>
+
+<script type="text/javascript">
+
+    window.onload = () => {
+
+        document.querySelector("#const-btn").onclick = () => {
+            constTest(1, 2);
+            constTest(1);
+        };
+
+        document.querySelector("#variable-btn").onclick = () => {
+            variableTest(1, 2);
+            variableTest(1);
+        };
+
+        document.querySelector("#expression-btn").onclick = () => {
+            expressionTest(1, 2);
+            expressionTest(1);
+        };
+
+        document.querySelector("#function-btn").onclick = () => {
+            functionTest(1, 2);
+            functionTest(1);
+        };
+
+    };
+
+    function constTest(numA, numB = 3) {
+        console.log(numA + numB);
+    }
+
+    function variableTest(numA, numB = numA) {
+        console.log(numA + numB);
+    }
+
+    function expressionTest(numA, numB = numA + 100) {
+        console.log(numA + numB);
+    }
+
+    function functionTest(numA, numB = fn()) {
+        console.log(numA + numB);
+    }
+
+    function fn() {
+        return 100;
+    }
+
+
+</script>
+
+</body>
+</html>

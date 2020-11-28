@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #text-sec {
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<section id="text-sec" style="width:100px"></section>
+
+<button id="set-inline-style-btn" type="button">设置样式</button>
+<br/>
+<button id="get-inline-style-btn" type="button">获取行间样式</button>
+<br/>
+<button id="get-style-btn" type="button">获取所有位置的样式</button>
+<br/>
+
+<script type="text/javascript">
+    window.onload = function () {
+        let testSec = document.querySelector("#text-sec");
+
+        document.querySelector("#set-inline-style-btn").onclick = () => {
+            testSec["style"]["width"] = "1000px";
+        };
+
+        document.querySelector("#get-inline-style-btn").onclick = () => {
+            console.log("width:", testSec["style"]["width"]);
+            console.log("height:", testSec["style"]["height"]);
+        };
+
+        document.querySelector("#get-style-btn").onclick = () => {
+            console.log("width:", css(testSec, "width"));
+            console.log("height:", css(testSec, "height"));
+        };
+
+        function css(obj, key) {
+            return obj["currentStyle"] ? obj["currentStyle"][key] : getComputedStyle(obj)[key];
+        }
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="declaration-btn" type="button">数组声明</button>
+<br/>
+<button id="for-btn" type="button">for遍历</button>
+<br/>
+<button id="for-in-btn" type="button">for-in遍历</button>
+<br/>
+<button id="foreach-btn" type="button">forEach()遍历</button>
+<br/>
+<button id="isArray-btn" type="button">isArray()函数</button>
+<br/>
+<button id="toString-btn" type="button">toString()函数</button>
+<br/>
+<button id="unshift-btn" type="button">unshift()函数</button>
+<br/>
+<button id="shift-btn" type="button">shift()函数</button>
+<br/>
+<button id="push-btn" type="button">push()函数</button>
+<br/>
+<button id="pop-btn" type="button">pop()函数</button>
+<br/>
+<button id="splice-delete-btn" type="button">splice()删除函数</button>
+<br/>
+<button id="splice-insert-btn" type="button">splice()添加函数</button>
+<br/>
+<button id="splice-update-btn" type="button">splice()修改函数</button>
+<br/>
+<button id="concat-btn" type="button">concat()函数</button>
+<br/>
+<button id="join-btn" type="button">join()函数</button>
+<br/>
+<button id="sort-btn" type="button">sort()函数</button>
+<br/>
+<button id="indexOf-btn" type="button">indexOf()函数</button>
+<br/>
+<button id="lastIndexOf-btn" type="button">lastIndexOf()函数</button>
+<br/>
+<button id="map-btn" type="button">map()函数</button>
+<br/>
+<button id="filter-btn" type="button">filter()函数</button>
+<br/>
+<button id="every-btn" type="button">every()函数</button>
+<br/>
+<button id="some-btn" type="button">some()函数</button>
+<br/>
+<button id="reduce-btn" type="button">reduce()函数</button>
+<br/>
+<button id="reduceRight-btn" type="button">reduce()函数</button>
+<br/>
+
+<script type="text/javascript">
+    window.onload = () => {
+        document.querySelector("#declaration-btn").onclick = () => {
+            let arrA = new Array(1, 2, 3, "a", "b", "c");
+            let arrB = [1, 2, 3, "a", "b", "c"];
+            console.log(arrA);
+            console.log(arrB);
+        };
+
+        document.querySelector("#for-btn").onclick = () => {
+            let arr = [3, 2, 1, 6, 5, 4];
+            for (let i = 0, j = arr.length; i < j; i++) {
+                console.log(arr[i]);
+            }
+        };
+
+        document.querySelector("#for-in-btn").onclick = () => {
+            let arr = [3, 2, 1, 6, 5, 4];
+            for (let i in arr) {
+                console.log(arr[i]);
+            }
+        };
+
+        document.querySelector("#foreach-btn").onclick = () => {
+            let arr = [3, 2, 1, 6, 5, 4];
+            arr.forEach(e => console.log(e));
+        };
+
+        document.querySelector("#isArray-btn").onclick = () => {
+            let a = 123;
+            let b = [1, 2, 3];
+            console.log(Array.isArray(a));
+            console.log(Array.isArray(b));
+        };
+
+        document.querySelector("#toString-btn").onclick = () => {
+            let arr = [1, 2, 3];
+            console.log(arr.toString());
+        };
+
+        document.querySelector("#unshift-btn").onclick = () => {
+            let arr = [1, 2, 3];
+            let result = arr.unshift(100, 111);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#shift-btn").onclick = () => {
+            let arr = [1, 2, 3];
+            let result = arr.shift();
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#push-btn").onclick = () => {
+            let arr = [1, 2, 3];
+            let result = arr.push(100, 111);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#pop-btn").onclick = () => {
+            let arr = [1, 2, 3];
+            let result = arr.pop();
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#splice-delete-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            let result = arr.splice(1, 3);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#splice-insert-btn").onclick = () => {
+            let arr = [1, 2, 5];
+            let result = arr.splice(2, 0, 3, 4);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#splice-update-btn").onclick = () => {
+            let arr = [1, 2, 4, 4, 4, 6];
+            let result = arr.splice(2, 3, 3, 4, 5);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#concat-btn").onclick = () => {
+            let arrA = [1, 2, 3];
+            let arrB = [3, 4, 5];
+            let result = arrA.concat(arrB);
+            console.log(arrA);
+            console.log(arrB);
+            console.log(result);
+        };
+
+        document.querySelector("#join-btn").onclick = () => {
+            let arr = [1, 2, 3];
+            let result = arr.join("--");
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#sort-btn").onclick = () => {
+            let arr = [3, 1, 5, 4, 2];
+            let resultA = arr.sort();
+            console.log(arr);
+            console.log(resultA);
+
+            let resultB = arr.sort((left, right) => right - left);
+            console.log(arr);
+            console.log(resultB);
+        };
+
+        document.querySelector("#indexOf-btn").onclick = () => {
+            let arr = [1, 2, 3, 2, 1];
+            console.log(arr.indexOf(2));
+            console.log(arr.indexOf(4));
+        };
+
+        document.querySelector("#lastIndexOf-btn").onclick = () => {
+            let arr = [1, 2, 3, 2, 1];
+            console.log(arr.lastIndexOf(2));
+            console.log(arr.lastIndexOf(4));
+        };
+
+        document.querySelector("#map-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            let result = arr.map(e => e * 2);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#filter-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            let result = arr.filter(e => e >= 3);
+            console.log(arr);
+            console.log(result);
+        };
+
+        document.querySelector("#every-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            console.log(arr.every(e => e >= 3));
+            console.log(arr.every(e => e >= 0));
+        };
+
+        document.querySelector("#some-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            console.log(arr.some(e => e >= 5));
+            console.log(arr.some(e => e >= 6));
+        };
+
+        document.querySelector("#reduce-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            console.log(arr.reduce((left, right) => {
+                console.log(left, right);
+                return left + right;
+            }));
+        };
+
+        document.querySelector("#reduceRight-btn").onclick = () => {
+            let arr = [1, 2, 3, 4, 5];
+            console.log(arr.reduceRight((left, right) => {
+                console.log(left, right);
+                return left + right;
+            }));
+        };
+    }
+
+</script>
+
+</body>
+</html>

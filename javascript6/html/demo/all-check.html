@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+    <label><input id="all-check-cbx" type="checkbox"/> 全选</label>
+    <label><input id="re-check-cbx" type="checkbox"/> 反选</label>
+    <hr/>
+    <label><input name="users" type="checkbox"/> 赵四</label>
+    <label><input name="users" type="checkbox"/> 刘能</label>
+    <label><input name="users" type="checkbox"/> 广坤</label>
+    <label><input name="users" type="checkbox"/> 大脚</label>
+    <label><input name="users" type="checkbox"/> 飞机</label>
+</section>
+
+<script type="text/javascript">
+    /*需求：
+    点击全选多选框，可以将所有内容选中，再次点击可以取消全选。
+    点击反选多选框，可以将所有内容反选，再次点击再次反选。
+    */
+    onload = () => {
+        let users = document.querySelectorAll("input[name='users']");
+        let allCheckCbx = document.querySelector("#all-check-cbx");
+        let reCheckCbx = document.querySelector("#re-check-cbx");
+
+        allCheckCbx.onclick = () => {
+            for (let i = 0, j = users.length; i < j; i++) {
+                users[i]["checked"] = allCheckCbx["checked"];
+            }
+        };
+
+        reCheckCbx.onclick = () => {
+            for (let i = 0, j = users.length; i < j; i++) {
+                users[i]["checked"] = !users[i]["checked"];
+            }
+        }
+    };
+</script>
+
+</body>
+</html>

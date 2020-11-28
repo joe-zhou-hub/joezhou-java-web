@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section id="test-onsubmit">
+    <form id="onsubmit-form" method="get" action="#">
+        <label>
+            <span>帐号:</span>
+            <input id="onsubmit-username-ipt" name="username" />
+        </label>
+        <label>
+            <span>密码:</span>
+            <input id="onsubmit-password-ipt" name="password" type="password"/>
+        </label>
+        <button type="submit">登录</button>
+    </form>
+</section>
+
+<section id="test-onreset">
+    <form id="onreset-form" method="get" action="#">
+        <label>
+            <span>帐号:</span>
+            <input id="onreset-username-ipt" name="username" />
+        </label>
+        <label>
+            <span>密码:</span>
+            <input id="onreset-password-ipt" name="password" type="password"/>
+        </label>
+        <button type="submit">登录</button>
+        <button type="reset">重置</button>
+    </form>
+</section>
+
+<section id="test-onkeyup">
+    <form id="onkeyup-form" method="get" action="#">
+        <label>
+            <span>帐号:</span>
+            <input id="onkeyup-username-ipt" name="username" />
+        </label>
+        <button type="submit">登录</button>
+    </form>
+</section>
+
+<section id="test-onblur">
+    <form id="onblur-form" method="get" action="#">
+        <label>
+            <span>帐号:</span>
+            <input id="onblur-username-ipt" name="username" />
+        </label>
+        <button type="submit">登录</button>
+    </form>
+</section>
+
+<script type="text/javascript">
+
+    window.onload = ()=>{
+        let onsubmitForm = document.querySelector("#onsubmit-form");
+        onsubmitForm.onsubmit = () => {
+            let usernameIpt = document.querySelector("#onsubmit-username-ipt");
+            let passwordIpt = document.querySelector("#onsubmit-password-ipt");
+            if("" === usernameIpt["value"] || "" === passwordIpt["value"] ){
+                alert("账号或者密码不能为空！");
+                return false;
+            }
+        };
+
+        let onresetForm = document.querySelector("#onreset-form");
+        onresetForm.onreset = () => {
+            let response = confirm("您将要重置表单，确认吗?");
+            if (!response) {
+                return false;
+            }
+        };
+
+        let onkeyupUsernameIpt = document.querySelector("#onkeyup-username-ipt");
+        onkeyupUsernameIpt.onkeyup = () => {
+            onkeyupUsernameIpt["value"] = onkeyupUsernameIpt["value"].toUpperCase();
+        };
+
+        let onblurUsernameIpt = document.querySelector("#onblur-username-ipt");
+        onblurUsernameIpt.onblur = () => {
+            if (!onblurUsernameIpt["value"].match("^[\\w]+$")) {
+                onblurUsernameIpt["value"] = "";
+                onblurUsernameIpt.focus();
+                alert("账号中不允许存在非法字符！");
+            }
+        }
+    };
+</script>
+
+</body>
+</html>

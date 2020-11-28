@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+        #calculator table, td {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        #calculator table {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        #calculator button {
+            font-size: 10px;
+            width: 100%;
+            height: 100%;
+            border-radius: 5%;
+        }
+
+        #calculator .screen {
+            height: 30px;
+            background: white;
+            border: 1px solid gray;
+            margin: 3px;
+            text-align: right;
+            line-height: 30px;
+            padding-right: 3px;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+<section id="calculator">
+
+    <table>
+        <tr>
+            <td colspan="4">
+                <div id="screen" class="screen">0</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>SET</button>
+            </td>
+            <td>
+                <button>GET</button>
+            </td>
+            <td>
+                <button id="clear-btn">AC</button>
+            </td>
+            <td>
+                <button>/</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="num-btn" value="7">7</button>
+            </td>
+            <td>
+                <button class="num-btn" value="8">8</button>
+            </td>
+            <td>
+                <button class="num-btn" value="9">9</button>
+            </td>
+            <td>
+                <button>*</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="num-btn" value="4">4</button>
+            </td>
+            <td>
+                <button class="num-btn" value="5">5</button>
+            </td>
+            <td>
+                <button class="num-btn" value="6">6</button>
+            </td>
+            <td>
+                <button>-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="num-btn" value="1">1</button>
+            </td>
+            <td>
+                <button class="num-btn" value="2">2</button>
+            </td>
+            <td>
+                <button class="num-btn" value="3">3</button>
+            </td>
+            <td>
+                <button id="add-btn">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="num-btn" value="0">0</button>
+            </td>
+            <td>
+                <button>.</button>
+            </td>
+            <td>
+                <button>+/-</button>
+            </td>
+            <td>
+                <button id="equal-btn">=</button>
+            </td>
+        </tr>
+    </table>
+</section>
+
+<script type="text/javascript">
+    window.onload = () => {
+        let preResult = 0;
+        let numBtn = document.querySelectorAll(".num-btn");
+        let screen = document.querySelector("#screen");
+        let addBtn = document.querySelector("#add-btn");
+        let equalBtn = document.querySelector("#equal-btn");
+        let clearBtn = document.querySelector("#clear-btn");
+
+        for (let i = 0, j = numBtn.length; i < j; i++) {
+            numBtn[i].onclick = () => {
+                let currentValue = screen.innerHTML;
+                if (currentValue === "0" || currentValue === "+") {
+                    screen.innerHTML = numBtn[i]["value"];
+                    return;
+                }
+                screen.innerHTML += numBtn[i]["value"];
+            }
+        }
+
+        addBtn.onclick = () => {
+            preResult += parseFloat(screen.innerHTML);
+            screen.innerHTML = "+";
+        };
+
+        equalBtn.onclick = () => {
+            screen.innerHTML = preResult + parseFloat(screen.innerHTML);
+        };
+
+        clearBtn.onclick = () => {
+            screen.innerHTML = "0";
+            preResult = 0;
+        }
+
+    }
+</script>
+</body>
+</html>

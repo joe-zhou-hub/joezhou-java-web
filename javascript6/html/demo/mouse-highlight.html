@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+    <ul id="item-list">
+        <li>在我心上用力的开一枪</li>
+        <li>让一切归零在这声巨响</li>
+        <li>如果爱是说什么都不能忘</li>
+        <li>我不挣扎</li>
+        <li>也许我也没差</li>
+        <li>在我心上用力的开一枪</li>
+        <li>让一切归零在这声巨响</li>
+        <li>如果爱是说什么都不能忘</li>
+        <li>我不挣扎</li>
+        <li>也许我也没差</li>
+    </ul>
+
+</section>
+
+<script type="text/javascript">
+    /*需求：当鼠标经过某一行内容的时候，文本可以高亮显示，当鼠标开某一行内容的时候，高亮取消。*/
+    onload = () => {
+        let itemList = document.querySelector("#item-list");
+        let lis = itemList.querySelectorAll("li");
+
+        for (let i = 0, j = lis.length; i < j; i++) {
+            lis[i].onmouseover = () => {
+                lis[i]["style"]["backgroundColor"] = "red";
+            };
+
+            lis[i].onmouseout = () => {
+                lis[i]["style"]["backgroundColor"] = "";
+            };
+        }
+    };
+</script>
+
+</body>
+</html>

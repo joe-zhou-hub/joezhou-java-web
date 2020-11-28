@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #remember-pwd-msg {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <label>
+        <span>账号：</span>
+        <input type="text"/>
+    </label>
+    <label>
+        <span>密码：</span>
+        <input type="password"/>
+    </label>
+    <label>
+        <input id="remember-pwd-cbx" type="checkbox"/>
+        <span>记住密码</span>
+    </label>
+    <span id="remember-pwd-msg"></span>
+</section>
+
+<script type="text/javascript">
+    /*需求：当鼠标经过 [记住密码] 的多选框时，提示"请不要再公共场合勾选此项！"，
+    当鼠标移出 [记住密码] 的多选框时，提示取消。*/
+    onload = () => {
+        let rememberPwdCbx = document.querySelector("#remember-pwd-cbx");
+        let rememberPwdMsg = document.querySelector("#remember-pwd-msg");
+        rememberPwdCbx.onmouseover = () => {
+            rememberPwdMsg.innerHTML = "<em>请不要在公共场合勾选此项！</em>";
+            rememberPwdMsg["style"]["display"] = "inline";
+        };
+        rememberPwdCbx.onmouseout = () => {
+            rememberPwdMsg["style"]["display"] = "none";
+        }
+    };
+</script>
+
+</body>
+</html>

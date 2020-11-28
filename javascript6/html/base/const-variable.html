@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="const-btn" type="button">JS常量</button>
+
+<button id="default-value-btn" type="button">var变量具有默认值</button>
+<br/>
+<button id="pre-analysis-btn" type="button">var变量会被预解析</button>
+<br/>
+<button id="duplicate-name-btn" type="button">var变量允许重复命名</button>
+<br/>
+<button id="let-btn" type="button">let变量更加严谨</button>
+<br/>
+
+<script type="text/javascript">
+
+    window.onload = () => {
+
+        document.querySelector("#const-btn").onclick = () => {
+            /*Err：Missing initializer in const declaration*/
+            /*
+            const numA;
+            numA = 1;
+            */
+
+            /*Err：Assignment to constant variable.*/
+            /*
+            const numB = 1;
+            numB = 2;
+            */
+
+            /*pass*/
+            const numC = 1;
+            console.log(numC);
+        };
+
+        document.querySelector("#default-value-btn").onclick = () => {
+            var money;
+            console.log(money);
+        };
+
+        document.querySelector("#pre-analysis-btn").onclick = () => {
+            console.log(money);
+            {
+                var money = 100;
+            }
+
+            /*after pre analysis：*/
+            /*
+            var money;
+            console.log(money);
+            {
+                money = 100;
+            }
+            */
+        };
+
+        document.querySelector("#duplicate-name-btn").onclick = () => {
+            var money = 100;
+            var money = 200;
+            console.log(money);
+
+            /*after pre analysis：*/
+            /*
+            var money;
+            money = 100;
+            money = 200;
+            console.log(money);
+            */
+        };
+
+        document.querySelector("#let-btn").onclick = () => {
+
+            /*Err：money is not defined*/
+            console.log(money);
+            {
+                let money = 100;
+
+                /*Err：Identifier 'money' has already been declared*/
+                /*let money = 200;*/
+            }
+        };
+    };
+
+</script>
+</body>
+</html>

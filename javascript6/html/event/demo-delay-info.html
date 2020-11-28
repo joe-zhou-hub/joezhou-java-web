@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #head {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            float: right;
+            margin-left: 10px;
+        }
+
+        #info {
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            display: none;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="head"></div>
+<div id="info"></div>
+
+<script type="text/javascript">
+    /* 思路：
+    1. head(头像)默认显示，info(信息)默认不显示。
+    2. 当鼠标移入头像head，立即显示信息info。
+    3. 当鼠标移入信息info，继续显示信息info。
+    4. 当鼠标移出头像head
+        - 进入空白区，开启延时定时器，0.5秒后关闭信息info。
+        - 在0.5秒内进入信息info，则关闭让信息info消失的延时定时器。
+    5. 当鼠标移出信息info
+        - 进入空白区，开启延时定时器，0.5秒后关闭信息info。
+        - 在0.5秒内进入头像head，则关闭让信息info消失的延时定时器。
+    */
+    window.onload = () => {
+        let head = document.querySelector("#head");
+        let info = document.querySelector("#info");
+        let timer = null;
+
+        head.onmouseover = info.onmouseover = () => {
+            clearTimeout(timer);
+            info["style"]["display"] = "block";
+        };
+
+        head.onmouseout = info.onmouseout = () => {
+            timer = setTimeout(() => {
+                info["style"]["display"] = "none";
+            }, 500);
+        };
+    }
+</script>
+
+
+</body>
+</html>

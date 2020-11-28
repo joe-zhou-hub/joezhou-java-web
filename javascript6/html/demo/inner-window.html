@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button type="button" onclick="myAlert();">alert</button>
+<button type="button" onclick="myConfirm();">confirm</button>
+<button type="button" onclick="myPrompt();">prompt</button>
+
+<script type="text/javascript">
+
+    function myAlert() {
+        alert("你好");
+    }
+
+    function myConfirm() {
+        let result = confirm("你好");
+        console.log(result);
+    }
+
+    function myPrompt() {
+        let result = prompt("请输入阅读密码", "123");
+        console.log(result);
+    }
+
+</script>
+
+</body>
+</html>

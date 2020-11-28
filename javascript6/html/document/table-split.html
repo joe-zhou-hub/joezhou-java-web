@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #user-tab, td, th {
+            width: 300px;
+            border: 1px solid red;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <label><input id="search-ipt"/></label>
+    <button id="search-btn" type="button">按姓名搜索</button>
+</section>
+<hr/>
+<section>
+    <table id="user-tab">
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>zhaosi</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>liuneng</td>
+        </tr>
+    </table>
+</section>
+
+<script type="text/javascript">
+    /*需求：按照空格拆分后，模糊查寻指定内容（忽略大小写），将背景高亮显示。*/
+    window.onload = () => {
+        document.querySelector("#search-btn").onclick = () => {
+            let searchIpt = document.querySelector("#search-ipt");
+            let tbody = document.querySelector("#user-tab").tBodies[0];
+            let trs = tbody.rows;
+            if (searchIpt["value"] === "" || searchIpt["value"] == null) {
+                return;
+            }
+            for (let i = 1, j = trs.length; i < j; i++) {
+                trs[i]["style"]["backgroundColor"] = "";
+                let nameFromTab = trs[i].cells[1].innerText.toUpperCase();
+                let nameFromIpt = searchIpt["value"].toUpperCase();
+                let names = nameFromIpt.split(" ");
+                for (let m = 0, n = names.length; m < n; m++) {
+                    if (nameFromTab.search(names[m]) !== -1) {
+                        trs[i]["style"]["backgroundColor"] = "gray";
+                    }
+                }
+            }
+        }
+    };
+</script>
+
+</body>
+</html>

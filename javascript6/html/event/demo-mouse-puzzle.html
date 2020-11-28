@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        #board {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: relative;
+        }
+
+        #empty {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        #fill {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<section id="board">
+    <section id="empty"></section>
+</section>
+<section id="fill"></section>
+
+<script type="text/javascript">
+    window.onload = () => {
+        let fill = document.querySelector("#fill");
+        fill.onmousedown = ev => {
+            ev = ev || event;
+            let l = ev.clientX - fill.offsetLeft;
+            let t = ev.clientY - fill.offsetTop;
+            document.onmousemove = ev => {
+                ev = ev || event;
+                fill["style"]["left"] = ev.clientX - l + "px";
+                fill["style"]["top"] = ev.clientY - t + "px";
+            };
+
+            document.onmouseup = () => {
+                document.onmousemove = null;
+
+                /* 如果<section>正好和 [空缺] 重合，则宣布成功*/
+                if (fill.offsetLeft === 100 && fill.offsetTop === 100) {
+                    fill.style.backgroundColor = "red";
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

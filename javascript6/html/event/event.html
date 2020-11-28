@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #test-body {
+            border: 1px solid red;
+        }
+
+        #test-sec {
+            margin-top: 100px;
+            height: 100px;
+            background: yellowgreen;
+
+        }
+    </style>
+</head>
+<body id="test-body">
+
+<section id="test-sec">
+    <button id="test-btn" type="button">事件冒泡</button>
+</section>
+
+<script type="text/javascript">
+    window.onload = () => {
+        document.onclick = ev => {
+            ev = ev || event;
+            let x = ev.clientX;
+            let y = ev.clientY;
+            console.log(x, y);
+        };
+
+        let testBody = document.querySelector("#test-body");
+        let testSec = document.querySelector("#test-sec");
+        let testBtn = document.querySelector("#test-btn");
+
+        testBody.onclick = () => {
+            alert("I am body...");
+        };
+
+        testSec.onclick = (ev) => {
+            ev = ev || event;
+            alert("I am sec...");
+            ev.cancelBubble = true;
+        };
+
+        testBtn.onclick = () => {
+            alert("I am btn...");
+        };
+
+    };
+</script>
+
+</body>
+</html>

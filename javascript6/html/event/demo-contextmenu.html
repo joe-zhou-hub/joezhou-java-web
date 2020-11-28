@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #context-menu {
+            width: 250px;
+            background-color: black;
+            display: none;
+            position: absolute;
+        }
+
+        #context-menu a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #context-menu li {
+            margin: 5px 0;
+            list-style-type: none;
+        }
+
+        #context-menu .divider {
+            border-bottom: 1px solid gray;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: -40px;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul id="context-menu">
+        <li><a href="#">返回(B)</a></li>
+        <li><a href="#">前进(F)</a></li>
+        <li><a href="#">重新加载</a></li>
+        <li class="divider"></li>
+        <li><a href="#">另存为(A)...</a></li>
+        <li><a href="#">打印(p)...</a></li>
+        <li><a href="#">投射(C)...</a></li>
+        <li><a href="#">翻成中文(简体)(T)</a></li>
+        <li class="divider"></li>
+        <li><a href="#">查看网页源代码(V)</a></li>
+        <li><a href="#">检查(N)</a></li>
+    </ul>
+</nav>
+
+
+<script type="text/javascript">
+    /*需求：当在页面上点击鼠标右键的时候，弹出自己自定义的右键菜单。*/
+    window.onload = () => {
+        let contextMenu = document.querySelector("#context-menu");
+        document.oncontextmenu = (ev) => {
+            ev = ev || event;
+            contextMenu["style"]["left"] = ev.clientX + "px";
+            contextMenu["style"]["top"] = ev.clientY + "px";
+            contextMenu["style"]["display"] = "block";
+            return false;
+        };
+        document.onclick = () => {
+            contextMenu["style"]["display"] = "none";
+        }
+    };
+</script>
+
+</body>
+</html>

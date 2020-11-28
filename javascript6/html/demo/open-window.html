@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="open-window-btn" type="button">开窗</button>
+
+<script type="text/javascript">
+
+    /*需求：点击按钮，开启一个新的空白窗口，然后在新窗口中展示 "abc"。*/
+    onload = () => {
+        let openWindowBtn = document.querySelector("#open-window-btn");
+        openWindowBtn.onclick = () => {
+            let newWindow = open("about:blank", "_blank");
+            newWindow.document.write("abc");
+        }
+    };
+</script>
+
+</body>
+</html>
