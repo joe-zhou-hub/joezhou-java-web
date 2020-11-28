@@ -8,9 +8,10 @@
     <artifactId>maven3-jar</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--配置jdk的编译版本，默认JDK5-->
     <build>
         <plugins>
+
+            <!--配置jdk的编译版本，默认JDK5-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
