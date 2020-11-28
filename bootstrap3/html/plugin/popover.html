@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="../../bootstrap337/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        section {
+            margin: 50px;
+            outline: 1px solid red;
+            padding: 50px;
+        }
+
+        p {
+            display: inline-block;
+            margin-right: 100px;
+            text-align: center;
+            width: 150px;
+            height: 20px;
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<section id="popover">
+    <p data-toggle="popover" data-placement="left" data-content="left...">左</p>
+    <p data-toggle="popover" data-placement="top" data-content="top...">上</p>
+    <p data-toggle="popover" data-placement="right" data-content="right...">右</p>
+    <p data-toggle="popover" data-placement="bottom" data-content="bottom...">下</p>
+</section>
+
+<section id="popover-jquery">
+    <p id="popover-p">popover-jquery</p>
+</section>
+
+<section id="popover-event-around">
+    <p id="popover-around-p">popover-around</p>
+</section>
+
+<script src="../../jquery321/jquery-3.2.1.min.js"></script>
+<script src="../../bootstrap337/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(() => $('[data-toggle="popover"]').popover());
+
+    $(() => {
+        $('#popover-p').popover({
+            "animation": true,
+            "placement": "top",
+            "trigger": "hover",
+            "delay": {"show": 1000, "hide": 2000},
+            "title": "通过JQ设定提示-标题...",
+            "content": "通过JQ设定提示-内容..."
+        });
+
+        let popoverAroundP = $("#popover-around-p");
+        popoverAroundP.on("show.bs.popover", () => alert("出现之前..."));
+        popoverAroundP.on("shown.bs.popover", () => alert("出现之后..."));
+        popoverAroundP.on("hide.bs.popover", () => alert("消失之前..."));
+        popoverAroundP.on("hidden.bs.popover", () => alert("消失之后..."));
+        popoverAroundP.popover({
+            "animation": true,
+            "placement": "left",
+            "trigger": "hover",
+            "delay": {"show": 1000, "hide": 2000},
+            "title": "环绕测试标题...",
+            "content": "环绕测试内容..."
+        });
+    });
+</script>
+</body>
+</html>

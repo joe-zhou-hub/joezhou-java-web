@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="../../bootstrap337/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        section {
+            margin: 50px;
+            outline: 1px solid red;
+            padding: 50px;
+        }
+
+        p {
+            display: inline-block;
+            margin-right: 100px;
+            text-align: center;
+            width: 150px;
+            height: 20px;
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<section id="tooltip-bootstrap">
+    <p data-toggle="tooltip" data-placement="left" title="left...">left</p>
+    <p data-toggle="tooltip" data-placement="top" title="top...">top</p>
+    <p data-toggle="tooltip" data-placement="bottom" title="bottom...">bottom</p>
+    <p data-toggle="tooltip" data-placement="right" title="right...">right</p>
+</section>
+
+<section id="tooltip-jquery">
+    <p id="tooltip-p">tooltip-jquery</p>
+</section>
+
+<section id="tooltip-event-around">
+    <p id="tooltip-around-p">tooltip-around</p>
+</section>
+
+<script src="../../jquery321/jquery-3.2.1.min.js"></script>
+<script src="../../bootstrap337/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(() => $(`[data-toggle="tooltip"]`).tooltip());
+
+    $(() => {
+        $('#tooltip-p').tooltip({
+            "animation": true,
+            "placement": "top",
+            "trigger": "hover",
+            "delay": {"show": 1000, "hide": 2000},
+            "title": "通过JQ设定提示..."
+        });
+
+        let tooltipAroundP = $("#tooltip-around-p");
+        tooltipAroundP.on("show.bs.tooltip", () => alert("出现之前..."));
+        tooltipAroundP.on("shown.bs.tooltip", () => alert("出现之后..."));
+        tooltipAroundP.on("hide.bs.tooltip", () => alert("消失之前..."));
+        tooltipAroundP.on("hidden.bs.tooltip", () => alert("消失之后..."));
+        tooltipAroundP.tooltip({
+            "animation": true,
+            "placement": "left",
+            "trigger": "hover",
+            "delay": {"show": 1000, "hide": 2000},
+            "title": "环绕测试..."
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="../../bootstrap337/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        section {
+            margin: 10px;
+            outline: 1px solid red;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="collapse-a">
+    <a href="#collapse-sec-1" data-toggle="collapse">折叠</a>
+    <article id="collapse-sec-1" class="collapse in">
+        <div class="well">折叠内容</div>
+    </article>
+</section>
+
+<section id="collapse-btn">
+    <button data-target="#collapse-sec-2" data-toggle="collapse" class="btn btn-info">折叠</button>
+    <article id="collapse-sec-2" class="collapse">
+        <div class="well">折叠内容</div>
+    </article>
+</section>
+
+<section id="collapse-panel">
+
+    <article id="items" class="panel-group">
+
+        <article class="panel panel-default">
+            <header class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#msg-1" data-parent="#items" data-toggle="collapse">触发器01</a>
+                </h4>
+            </header>
+            <div id="msg-1" class="panel-collapse collapse in">
+                <div class="panel-body">第1部分的折叠内容...</div>
+            </div>
+        </article>
+
+        <article class="panel panel-default">
+            <header class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#msg-2" data-parent="#items" data-toggle="collapse">触发器02</a>
+                </h4>
+            </header>
+            <div id="msg-2" class="panel-collapse collapse">
+                <div class="panel-body">第2部分的折叠内容...</div>
+            </div>
+        </article>
+
+        <article class="panel panel-default">
+            <header class="panel-heading">
+                <h4 class="panel-title">
+                    <span href="#msg-3" data-parent="#items" data-toggle="collapse">触发器03</span>
+                </h4>
+            </header>
+            <div id="msg-3" class="panel-collapse collapse">
+                <div class="panel-body">第3部分的折叠内容...</div>
+            </div>
+        </article>
+
+    </article>
+
+</section>
+
+<script src="../../jquery321/jquery-3.2.1.min.js"></script>
+<script src="../../bootstrap337/js/bootstrap.min.js"></script>
+</body>
+</html>

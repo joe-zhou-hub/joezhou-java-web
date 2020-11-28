@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="../../bootstrap337/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        section {
+            margin: 10px;
+            outline: 1px solid red;
+            padding: 10px;
+            width: 1000px;
+            height: 650px;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<section id="carousel">
+    <article id="my-carousel-1" class="carousel slide">
+
+        <ol class="carousel-indicators">
+            <li data-target="#my-carousel-1" data-slide-to="0" class="active"></li>
+            <li data-target="#my-carousel-1" data-slide-to="1"></li>
+        </ol>
+
+        <article class="carousel-inner">
+
+            <div class="item active">
+                <img src="../../image/slide-1.png" alt="">
+                <div class="carousel-caption">
+                    <h3>图1标题</h3>
+                    <p>图1内内内内容容容容</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="../../image/slide-2.png" alt="">
+                <div class="carousel-caption">
+                    <h3>图2标题</h3>
+                    <p>图2内内内内容容容容</p>
+                </div>
+            </div>
+
+        </article>
+
+        <a href="#my-carousel-1" class="carousel-control left" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+
+        <a href="#my-carousel-1" class="carousel-control right" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+
+    </article>
+</section>
+
+<script src="../../jquery321/jquery-3.2.1.min.js"></script>
+<script src="../../bootstrap337/js/bootstrap.min.js"></script>
+</body>
+</html>
