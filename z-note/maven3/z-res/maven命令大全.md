@@ -51,10 +51,5 @@ mvn tomcat:stop | 停止web应用
 mvn tomcat:redeploy | 重新部署
 mvn war:exploded tomcat:exploded    | 部署展开的war文件：
 
-# 3. 安装本地jar到本地仓库
-
-```
-mvn install:install-file -DgroupId=packageName -DartifactId=projectName -Dversion=version -Dpackaging=jar -Dfile=path
-```
 
  
