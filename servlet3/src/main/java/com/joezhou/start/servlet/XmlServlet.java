@@ -16,11 +16,10 @@ public class XmlServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // 因为请求头中允许接收html类型[Accept:text/html...]
-        // 所以我可以放心的设置内容的MIME类型为text/html
+        // 对应请求头 [Accept:text/html...]
         resp.setContentType("text/html;charset=utf-8");
 
-        // 利用IO流从服务端向页面端进行传输[响应]
+        // 利用响应流响应静态HTML代码
         PrintWriter writer = resp.getWriter();
         writer.println("<!DOCTYPE html>");
         writer.println("<html>");
