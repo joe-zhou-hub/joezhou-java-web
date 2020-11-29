@@ -26,7 +26,7 @@ public class XmlServlet extends HttpServlet {
         writer.println("<html>");
         writer.println("<head>");
         writer.println("<meta charset=\"UTF-8\">");
-        writer.println("<title>servlet-test</title>");
+        writer.println("<title>xml-servlet</title>");
         writer.println("</head>");
         writer.println("<body>");
         writer.println("系统时间:" + new Date());
