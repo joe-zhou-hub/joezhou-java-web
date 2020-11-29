@@ -16,10 +16,10 @@ public class XmlServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // 对应请求头 [Accept:text/html...]
+        // Request Headers [Accept:text/html...]
         resp.setContentType("text/html;charset=utf-8");
 
-        // 利用响应流响应静态HTML代码
+        // response data
         PrintWriter writer = resp.getWriter();
         writer.println("<!DOCTYPE html>");
         writer.println("<html>");
