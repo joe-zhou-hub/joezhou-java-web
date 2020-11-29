@@ -6,13 +6,13 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>testServlet</servlet-name>
-    <servlet-class>com.joezhou.start.servlet.TestServlet</servlet-class>
+    <servlet-name>xmlServlet</servlet-name>
+    <servlet-class>com.joezhou.start.servlet.XmlServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>testServlet</servlet-name>
-    <url-pattern>/servlet/testServlet</url-pattern>
+    <servlet-name>xmlServlet</servlet-name>
+    <url-pattern>/servlet/xmlServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

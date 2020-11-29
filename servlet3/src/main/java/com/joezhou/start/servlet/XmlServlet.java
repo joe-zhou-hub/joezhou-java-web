@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @author JoeZhou
  */
-public class TestServlet extends HttpServlet {
+public class XmlServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
