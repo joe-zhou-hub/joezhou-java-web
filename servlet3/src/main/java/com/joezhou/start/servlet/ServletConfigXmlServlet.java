@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-public class InitParamXmlServlet extends HttpServlet {
+public class ServletConfigXmlServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println(super.getServletConfig().getInitParameter("tel"));

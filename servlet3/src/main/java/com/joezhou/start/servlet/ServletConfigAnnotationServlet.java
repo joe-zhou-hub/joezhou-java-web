@@ -11,11 +11,11 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet(value = "/api/servlet/init_param_annotation", initParams = {
+@WebServlet(value = "/api/servlet/servlet_config_annotation", initParams = {
         @WebInitParam(name = "tel", value = "17766541438"),
         @WebInitParam(name = "email", value = "yy06200210@qq.com"),
 })
-public class InitParamAnnotationServlet extends HttpServlet {
+public class ServletConfigAnnotationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println(super.getServletConfig().getInitParameter("tel"));
