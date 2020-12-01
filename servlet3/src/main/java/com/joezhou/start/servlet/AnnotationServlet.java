@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * @author JoeZhou
  */
-@WebServlet({"/servlet/annotation_a", "/servlet/annotation_b"})
+@WebServlet({"/api/servlet/annotation_a", "/api/servlet/annotation_b"})
 public class AnnotationServlet extends HttpServlet {
 
     @Override
