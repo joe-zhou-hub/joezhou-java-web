@@ -8,10 +8,10 @@ import org.junit.Test;
  * @author JoeZhou
  */
 public class LoginDaoTest {
+    private LoginDao loginDao = new LoginDaoImpl();
 
     @Test
-    public void queryForList(){
-        LoginDao loginDao = new LoginDaoImpl();
+    public void queryForList() {
         System.out.println(loginDao.queryForList());
     }
 }
