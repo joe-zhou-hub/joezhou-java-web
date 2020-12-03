@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/servlet/servlet_context")
+@WebServlet("/api/servlet_context")
 public class ServletContextServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

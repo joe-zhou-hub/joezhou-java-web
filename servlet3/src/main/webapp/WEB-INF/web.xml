@@ -34,12 +34,12 @@
 
     <servlet-mapping>
         <servlet-name>xmlServlet</servlet-name>
-        <url-pattern>/api/servlet/xml</url-pattern>
+        <url-pattern>/api/xml</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>initParamXmlServlet</servlet-name>
-        <url-pattern>/api/servlet/servlet_config_xml</url-pattern>
+        <url-pattern>/api/servlet_config_xml</url-pattern>
     </servlet-mapping>
 
 

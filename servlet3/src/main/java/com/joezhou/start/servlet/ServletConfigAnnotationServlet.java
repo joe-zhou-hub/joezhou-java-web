@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet(value = "/api/servlet/servlet_config_annotation", initParams = {
+@WebServlet(value = "/api/servlet_config_annotation", initParams = {
         @WebInitParam(name = "tel", value = "17766541438"),
         @WebInitParam(name = "email", value = "yy06200210@qq.com"),
 })
