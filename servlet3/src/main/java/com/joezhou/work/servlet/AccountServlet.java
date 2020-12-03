@@ -2,7 +2,6 @@ package com.joezhou.work.servlet;
 
 import com.joezhou.work.service.impl.AccountServiceImpl;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,9 +34,8 @@ public class AccountServlet extends HttpServlet {
         resp.getWriter().println(result ? username + " 登陆成功..." : username + " 登陆失败...");
     }
 
-
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         this.doGet(req, resp);
     }
 }
