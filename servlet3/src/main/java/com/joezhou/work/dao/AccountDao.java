@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author JoeZhou
  */
-public interface LoginDao {
+public interface AccountDao {
     /**
      * 查询全部的账号信息
      *
