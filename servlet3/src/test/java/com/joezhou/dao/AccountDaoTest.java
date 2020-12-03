@@ -14,4 +14,10 @@ public class AccountDaoTest {
     public void queryForList() {
         System.out.println(accountDao.queryForList());
     }
+
+    @Test
+    public void queryByUsername() {
+        System.out.println(accountDao.queryByUsername("abc"));
+        System.out.println(accountDao.queryByUsername("admin"));
+    }
 }

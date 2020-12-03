@@ -4,7 +4,6 @@ import com.joezhou.work.dao.AccountDao;
 import com.joezhou.work.dao.impl.AccountDaoImpl;
 import com.joezhou.work.service.AccountService;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,15 +20,11 @@ public class AccountServiceImpl implements AccountService {
             return false;
         }
 
-        List<Map<String, Object>> accounts = accountDao.queryForList();
-        if (accounts == null || accounts.size() <= 0) {
-            throw new RuntimeException("查询账号列表失败或数据库中无任何记录...");
+        Map<String, Object> userFromMysql = accountDao.queryByUsername(username);
+        if (userFromMysql != null && !userFromMysql.isEmpty()) {
+            return userFromMysql.get("PASSWORD").equals(password);
         }
-        for (Map<String, Object> account : accounts) {
-            if (username.equals(account.get("USERNAME")) && password.equals(account.get("PASSWORD"))) {
-                return true;
-            }
-        }
+
         return false;
     }
 

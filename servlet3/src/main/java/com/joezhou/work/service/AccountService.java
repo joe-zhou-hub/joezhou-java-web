@@ -11,5 +11,5 @@ public interface AccountService {
      * @param password 前端传递过来的密码
      * @return 如果登录成功返回true，否则返回false
      */
-    boolean login(String username, String password) throws Exception;
+    boolean login(String username, String password);
 }

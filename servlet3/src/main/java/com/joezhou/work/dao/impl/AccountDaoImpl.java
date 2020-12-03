@@ -10,10 +10,17 @@ import java.util.Map;
  * @author JoeZhou
  */
 public class AccountDaoImpl implements AccountDao {
+
     private JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
     @Override
     public List<Map<String, Object>> queryForList() {
         return jdbcTemplate.queryForList("SELECT ID, USERNAME, PASSWORD FROM ACCOUNT");
+    }
+
+    @Override
+    public Map<String, Object> queryByUsername(String username) {
+        return jdbcTemplate.queryForMap(
+                "SELECT ID, USERNAME, PASSWORD FROM ACCOUNT WHERE USERNAME = ?", username);
     }
 }

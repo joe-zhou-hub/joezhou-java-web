@@ -12,7 +12,7 @@ public class AccountServiceTest {
     private AccountService accountService = new AccountServiceImpl();
 
     @Test
-    public void login() throws Exception {
+    public void login() {
         String username = null;
         String password = null;
         System.out.println(accountService.login(username, password));
