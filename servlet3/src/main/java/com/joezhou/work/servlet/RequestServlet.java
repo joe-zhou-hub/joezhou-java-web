@@ -12,7 +12,7 @@ import java.util.Arrays;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/servlet/request")
+@WebServlet("/api/request")
 public class RequestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
