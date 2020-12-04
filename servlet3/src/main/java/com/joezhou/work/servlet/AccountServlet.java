@@ -31,7 +31,7 @@ public class AccountServlet extends HttpServlet {
         String password = req.getParameter("password");
         boolean result = new AccountServiceImpl().login(username, password);
         resp.setContentType("text/html;charset=UTF-8");
-        resp.getWriter().println(result ? username + " 登陆成功..." : username + " 登陆失败...");
+        resp.getWriter().println(result ? username + " 登陆成功..." : " 登陆失败...");
     }
 
     @Override
