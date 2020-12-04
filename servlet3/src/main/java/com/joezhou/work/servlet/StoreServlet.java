@@ -44,6 +44,11 @@ public class StoreServlet extends HttpServlet {
 
     private void session(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
+        System.out.println(session.isNew() ? "session is new..." : "session is old...");
+        System.out.println("sessionId: " + session.getId());
+        System.out.println("inactiveInterval: " + session.getMaxInactiveInterval());
+        session.setMaxInactiveInterval(3600);
+        System.out.println("inactiveInterval: " + session.getMaxInactiveInterval());
         session.setAttribute("session-name", "session-value-1");
         session.setAttribute("session-name", "session-value-2");
         System.out.println(session.getAttribute("session-name"));

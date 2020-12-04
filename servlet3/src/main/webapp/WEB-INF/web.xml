@@ -13,7 +13,12 @@
         <param-name>type</param-name>
         <param-value>human</param-value>
     </context-param>
-
+    <!--设置session的时效时间间隔，秒-->
+    <!--
+        <session-config>
+            <session-timeout>3600</session-timeout>
+        </session-config>
+    -->
     <servlet>
         <servlet-name>xmlServlet</servlet-name>
         <servlet-class>com.joezhou.start.servlet.XmlServlet</servlet-class>

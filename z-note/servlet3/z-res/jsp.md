@@ -5,6 +5,8 @@
 - JSP = HTML + JAVA + JSP自己的标签。
 
 - **页面取值：** `${requestScope["username"]}` 或 `${username}`
+- **页面取值：** `${sessionScope["username"]}`
+- **页面取值：** `${applicationScope["username"]}`
 
 # 4. IDEA中的EL表达式支持
 
@@ -33,3 +35,9 @@
 
 </web-app>
 ```
+
+- **URL重写方案：** 如果浏览器不支持Cookie，或者禁用了cookie，那么session将无法使用，这时候就需要使用"URL重写"方案。
+    - URL重写时，必需要对你的URL进行重新编码，否则不会生效，代码为：`resp.encodeURL("/servlet/TestServlet")`，这个编码的过程会将 `sessionID` 附加到URL的末尾，以保证浏览器和服务器之间能正常的交换 `sessionID`。
+    - 当你使用了URL重写方案之后，容器还是会先尝试使用Cookie方案进行 `sessionID` 的交换，如果失败了，才会退而求其次，使用URL重写方案。
+    - 只有JSP或者Servlet之类的动态资源才可以使用URL重写，静态资源如HTML等，不能URL重写，而且本身HTML页面也无法使用session。
+    - 重定向有一个简单地URL重写方式：`resp.encodeRedirectURL("/servlet/login");`
