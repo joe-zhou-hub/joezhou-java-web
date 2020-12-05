@@ -18,9 +18,13 @@ public class ResponseServlet extends HttpServlet {
         Cookie cookie = new Cookie("cookie-name", "cookie-value");
         cookie.setMaxAge(60 * 5);
         resp.addCookie(cookie);
+        System.out.println(resp.containsHeader("string-header"));
         resp.addHeader("string-header", "string-header");
+        System.out.println(resp.containsHeader("string-header"));
         resp.addIntHeader("int-header", 9527);
         resp.addDateHeader("date-header", System.currentTimeMillis());
+        resp.setContentLength(1);
+        resp.setStatus(200);
         resp.setContentType("text/html;charset=UTF-8");
         resp.getWriter().print("response-data");
     }
