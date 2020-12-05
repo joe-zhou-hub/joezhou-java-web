@@ -20,18 +20,20 @@ public class StoreServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
 
-        final String REQUEST = "request";
-        final String SESSION = "session";
-        final String APPLICATION = "application";
-
         String meta = req.getParameter("meta");
-        if (REQUEST.equals(meta)) {
+        if (Meta.REQUEST.equals(meta)) {
             request(req, resp);
-        } else if (SESSION.equals(meta)) {
+        } else if (Meta.SESSION.equals(meta)) {
             session(req, resp);
-        } else if (APPLICATION.equals(meta)) {
+        } else if (Meta.APPLICATION.equals(meta)) {
             application(req, resp);
         }
+    }
+
+    interface Meta {
+        String REQUEST = "request";
+        String SESSION = "session";
+        String APPLICATION = "application";
     }
 
     private void request(HttpServletRequest req, HttpServletResponse resp) throws IOException {

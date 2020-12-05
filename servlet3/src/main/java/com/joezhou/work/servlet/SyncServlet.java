@@ -16,13 +16,13 @@ import java.io.IOException;
 public class SyncServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        synchronized (session) {
+        HttpSession session;
+        synchronized (session = req.getSession()) {
             session.setAttribute("money", 100);
         }
 
-        ServletContext application = req.getServletContext();
-        synchronized (application) {
+        ServletContext application;
+        synchronized (application = req.getServletContext()) {
             application.setAttribute("money", 200);
         }
     }
