@@ -36,6 +36,7 @@ public class RedirectServlet extends HttpServlet {
     }
 
     private void webInfRes(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setContentType("text/html;charset=UTF-8");
         System.out.println("重定向到/WEB-INF/web-inf-res.html");
         resp.sendRedirect(req.getContextPath() + "/web-inf-res");
     }
