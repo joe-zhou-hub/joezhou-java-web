@@ -15,8 +15,8 @@ public class RedirectServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        System.out.println("重定向到/view/html/login.html");
-        resp.sendRedirect(req.getContextPath() + "/view/html/login.html");
+        System.out.println("重定向到/index.html");
+        resp.sendRedirect(req.getContextPath() + "/index.html");
     }
 
     @Override

@@ -31,12 +31,13 @@ public class AjaxServlet extends HttpServlet {
     private void ajaxType(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String xRequestedWith = req.getHeader("x-requested-with");
         if (xRequestedWith != null && xRequestedWith.equals(Meta.XML_HTTP_REQUEST)) {
-            System.out.println("本次请求是AJAX请求，使用IO回写...");
-            resp.setContentType("text/html;charset=UTF-8");
-            resp.getWriter().print("数据");
+            System.out.println("本次请求是AJAX请求，回写JSON数据...");
+            resp.setContentType("application/json;charset=UTF-8");
+            String jsonStr = "{\"username\":\"admin\",\"password\":\"123\"}";
+            resp.getWriter().print(jsonStr);
         } else {
-            System.out.println("本次请求不是AJAX请求，使用请求转发...");
-            req.getRequestDispatcher("/view/html/login.html").forward(req, resp);
+            System.out.println("本次请求不是AJAX请求，转发到index.html...");
+            req.getRequestDispatcher("/index.html").forward(req, resp);
         }
     }
 

@@ -15,8 +15,8 @@ public class ForwardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        System.out.println("转发给/view/html/login.html");
-        req.getRequestDispatcher("/view/html/login.html").forward(req, resp);
+        System.out.println("转发给index.html");
+        req.getRequestDispatcher("/index.html").forward(req, resp);
     }
 
     @Override
