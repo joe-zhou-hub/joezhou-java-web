@@ -1,0 +1,1 @@
+Eclipse配置了tomcat之后，会在项目中生成一个server的项目，里面是你的tomcat，每次启动tomcat，那里面的server.xml会覆盖你本地tomcat的server.xml，所以那里也要设置一下。
