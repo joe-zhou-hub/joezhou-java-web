@@ -19,6 +19,12 @@
             <session-timeout>3600</session-timeout>
         </session-config>
     -->
+
+    <servlet>
+        <servlet-name>webInfRes</servlet-name>
+        <jsp-file>/WEB-INF/view/html/web-inf-res.html</jsp-file>
+    </servlet>
+
     <servlet>
         <servlet-name>xmlServlet</servlet-name>
         <servlet-class>com.joezhou.start.servlet.XmlServlet</servlet-class>
@@ -44,8 +50,12 @@
 
     <servlet-mapping>
         <servlet-name>initParamXmlServlet</servlet-name>
-        <url-pattern>/api/servlet_config_xml</url-pattern>
+        <url-pattern>/api/servlet-config-xml</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>webInfRes</servlet-name>
+        <url-pattern>/web-inf-res</url-pattern>
+    </servlet-mapping>
 
 </web-app>

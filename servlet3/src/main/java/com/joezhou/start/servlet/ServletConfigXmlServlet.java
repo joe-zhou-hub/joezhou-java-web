@@ -12,8 +12,12 @@ import java.io.IOException;
 public class ServletConfigXmlServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(super.getServletConfig().getInitParameter("tel"));
-        System.out.println(super.getServletConfig().getInitParameter("email"));
+        String tel = super.getServletConfig().getInitParameter("tel");
+        System.out.println(tel);
+        String email = super.getServletConfig().getInitParameter("email");
+        System.out.println(email);
+        resp.setContentType("text/html;charset=UTF-8");
+        resp.getWriter().print(tel + " : " + email);
     }
 
     @Override

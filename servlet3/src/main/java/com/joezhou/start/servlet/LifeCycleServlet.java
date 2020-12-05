@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet(value = "/api/life_cycle", loadOnStartup = 1)
+@WebServlet(value = "/api/life-cycle", loadOnStartup = 1)
 public class LifeCycleServlet extends HttpServlet {
     @Override
     public void destroy() {
