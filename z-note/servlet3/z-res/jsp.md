@@ -41,3 +41,7 @@
     - 当你使用了URL重写方案之后，容器还是会先尝试使用Cookie方案进行 `sessionID` 的交换，如果失败了，才会退而求其次，使用URL重写方案。
     - 只有JSP或者Servlet之类的动态资源才可以使用URL重写，静态资源如HTML等，不能URL重写，而且本身HTML页面也无法使用session。
     - 重定向有一个简单地URL重写方式：`resp.encodeRedirectURL("/servlet/login");`
+
+- WEB-INF下的重定向：重定向默认无法找到 `WEB-INF` 下的资源，需要额外配置资源映射：
+    - 在 `web.xml` 中通过 `<servlet>` 子标签 `<jsp-file>` 来映射资源。
+    - html会有中文乱码问题。
