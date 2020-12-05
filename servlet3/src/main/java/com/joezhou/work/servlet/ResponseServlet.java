@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/api/response")
 public class ResponseServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Cookie cookie = new Cookie("cookie-name", "cookie-value");
         cookie.setMaxAge(60 * 5);
         resp.addCookie(cookie);

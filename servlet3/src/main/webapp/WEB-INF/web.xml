@@ -22,7 +22,7 @@
 
     <servlet>
         <servlet-name>webInfRes</servlet-name>
-        <jsp-file>/WEB-INF/view/html/web-inf-res.html</jsp-file>
+        <jsp-file>/WEB-INF/web-inf-res.html</jsp-file>
     </servlet>
 
     <servlet>

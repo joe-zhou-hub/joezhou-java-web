@@ -15,8 +15,11 @@ public class RedirectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("UTF-8");
-        System.out.println("重定向到/view/html/login.html");
-        resp.sendRedirect(req.getContextPath() + "/view/html/login.html");
+        //System.out.println("重定向到/view/html/login.html");
+        //resp.sendRedirect(req.getContextPath() + "/view/html/login.html");
+
+        System.out.println("重定向到/WEB-INF/web-inf-res.html");
+        resp.sendRedirect(req.getContextPath() + "/web-inf-res");
     }
 
     @Override
