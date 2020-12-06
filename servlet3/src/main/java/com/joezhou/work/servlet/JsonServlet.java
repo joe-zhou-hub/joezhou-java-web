@@ -39,84 +39,87 @@ public class JsonServlet extends HttpServlet {
         String GSON = "gson";
     }
 
+    private Map<String, Object> getMap(int num) {
+        Map<String, Object> map01 = new HashMap<>(2);
+        map01.put("map-key-1", "map-val-1");
+        map01.put("map-null-1", null);
+        map01.put("map-empty-1", "");
+        map01.put("map-date-1", new Date());
+        map01.put("map-gender-1", "1");
+
+        Map<String, Object> map02 = new HashMap<>(2);
+        map02.put("map-key-2", "map-val-2");
+        map02.put("map-null-2", null);
+        map02.put("map-empty-2", "");
+        map02.put("map-date-2", new Date());
+        map02.put("map-gender-2", "1");
+        return num == 1 ? map01 : map02;
+    }
+
+    private Account getAccount(int num) {
+        Account account01 = new Account(9527, "user-1", "pass-1");
+        Account account02 = new Account(9528, "user-2", "pass-2");
+        return num == 1 ? account01 : account02;
+    }
+
     private void jackson(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        // new and config objectMapper
+        // new objectMapper
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-        objectMapper.setDateFormat(new SimpleDateFormat("yyyy/MM/dd hh:mm:ss"));
 
         // writeValueAsString(): map to json-str
-        Map<String, Object> map = new HashMap<>(2);
-        map.put("map-name", "map-val-1");
-        map.put("map-null", null);
-        map.put("map-empty", "");
-        map.put("map-date", new Date());
-        System.out.println(objectMapper.writeValueAsString(map));
+        System.out.println(objectMapper.writeValueAsString(this.getMap(1)));
 
         // writeValueAsString(): pojo to json-str
-        Account account = new Account(9527, "admin", "123");
-        System.out.println(objectMapper.writeValueAsString(account));
+        System.out.println(objectMapper.writeValueAsString(this.getAccount(1)));
 
         // writeValueAsString(): list<pojo> to json-str
         List<Account> accounts = new ArrayList<>();
-        accounts.add(new Account(9528, "zhaosi", "zhaosi123"));
-        accounts.add(new Account(9529, "liuneng", "liuneng123"));
-        accounts.add(new Account(9530, "dajiao", "dajiao123"));
+        accounts.add(this.getAccount(1));
+        accounts.add(this.getAccount(2));
         System.out.println(objectMapper.writeValueAsString(accounts));
+
+        // new and config objectMapper
+        objectMapper = new ObjectMapper()
+                .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+                .setDateFormat(new SimpleDateFormat("yyyy/MM/dd hh:mm:ss"));
 
         // writeValue(): list<map> to json-str and response
         List<Map<String, Object>> list = new ArrayList<>();
-        Map<String, Object> map01 = new HashMap<>(2);
-        map01.put("map01-key01", "map01-value01");
-        map01.put("map01-key02", "map01-value02");
-        Map<String, Object> map02 = new HashMap<>(2);
-        map02.put("map02-key01", "map02-value01");
-        map02.put("map02-key02", "map02-value02");
-        list.add(map01);
-        list.add(map02);
-        resp.setContentType("text/html;charset=utf-8");
+        list.add(this.getMap(1));
+        list.add(this.getMap(2));
+        resp.setContentType("application/json;charset=utf-8");
         objectMapper.writeValue(resp.getWriter(), list);
     }
 
     private void gson(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        // toJson(): map to json-str
-        Map<String, Object> map = new HashMap<>(2);
-        map.put("map-name", "map-val-1");
-        map.put("map-null", null);
-        map.put("map-empty", "");
-        map.put("map-date", new Date());
-        System.out.println(new Gson().toJson(map));
+        Gson gson = new Gson();
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.serializeNulls();
-        gsonBuilder.setDateFormat("yyyy-MM-dd");
-        Gson gson = gsonBuilder.create();
+        // toJson(): map to json-str
+        System.out.println(gson.toJson(this.getMap(1)));
 
         // toJson(): pojo to json-str
-        Account account = new Account(9527, "admin", "123");
-        System.out.println(gson.toJson(account));
+        System.out.println(gson.toJson(this.getAccount(1)));
 
         // toJson(): list<pojo> to json-str
         List<Account> accounts = new ArrayList<>();
-        accounts.add(new Account(9528, "zhaosi", "zhaosi123"));
-        accounts.add(new Account(9529, "liuneng", "liuneng123"));
-        accounts.add(new Account(9530, "dajiao", "dajiao123"));
+        accounts.add(this.getAccount(1));
+        accounts.add(this.getAccount(2));
         System.out.println(gson.toJson(accounts));
+
+        // new gson by GsonBuilder
+        gson = new GsonBuilder()
+                .serializeNulls()
+                .setDateFormat("yyyy-MM-dd")
+                .create();
 
         // toJson(): list<map> to json-str and response
         List<Map<String, Object>> list = new ArrayList<>();
-        Map<String, Object> map01 = new HashMap<>(2);
-        map01.put("map01-key01", "map01-value01");
-        map01.put("map01-key02", "map01-value02");
-        Map<String, Object> map02 = new HashMap<>(2);
-        map02.put("map02-key01", "map02-value01");
-        map02.put("map02-key02", "map02-value02");
-        list.add(map01);
-        list.add(map02);
-        resp.setContentType("text/html;charset=utf-8");
+        list.add(this.getMap(1));
+        list.add(this.getMap(2));
+        resp.setContentType("application/json;charset=utf-8");
         resp.getWriter().print(gson.toJson(list));
     }
 
