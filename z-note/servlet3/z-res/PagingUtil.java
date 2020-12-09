@@ -13,7 +13,7 @@ import java.util.List;
 public class PageUtil implements Serializable {
 
     private Integer size, page, pages, total;
-    private List<String> numbersList;
+    private List<String> numbers;
 
     /**
      * Specify the current page number and the size per page
@@ -61,52 +61,48 @@ public class PageUtil implements Serializable {
     /**
      * build a paging list of numbers
      */
-    public void buildNumbersList() {
+    public void buildNumbers() {
 
-        numbersList = new ArrayList<>();
+        numbers = new ArrayList<>();
 
-        // when pages >= 2, ["1"], ["2"] is requried
-        int constLength = 2;
-
-        // uncertain numbers in page list must <= 5
-        int varLength = 5;
-
-        // numbers in page list must <= 7
-        int maxLength = 7;
+        // constLength: when pages >= 2, ["1"], ["2"] is requried
+        // varLength: uncertain numbers in page list must <= 5
+        // maxLength: numbers in page list must <= 7
+        int constLength = 2, varLength = 5, maxLength = 7;
 
         // ["1"] must exist
-        numbersList.add("1");
+        numbers.add("1");
 
         if (pages > 1) {
 
             // when pages > 1, ["2"] must exist
-            numbersList.add("2");
+            numbers.add("2");
 
             if (page <= varLength) {
 
                 // add number after ["2"], <=pages and <=5
                 for (int i = constLength; i < maxLength && i < pages; i++) {
-                    numbersList.add(i + 1 + "");
+                    numbers.add(i + 1 + "");
                 }
 
                 // when pages > 7, add ["..."]
                 if (pages > maxLength) {
-                    numbersList.add("...");
+                    numbers.add("...");
                 }
             } else {
                 // when page > 5, the first ["..."] must exist
-                numbersList.add("...");
+                numbers.add("...");
 
                 // add two number before current page
                 // add two number after current page
                 // <= pages
                 for (int i = -constLength; i <= constLength && page + i <= pages; i++) {
-                    numbersList.add(page + i + "");
+                    numbers.add(page + i + "");
                 }
 
                 // add second ["..."] when pages > 7 and at least two more
                 if (pages > maxLength && page < pages - constLength) {
-                    numbersList.add("...");
+                    numbers.add("...");
                 }
             }
         }
