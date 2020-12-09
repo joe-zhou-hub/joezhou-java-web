@@ -45,7 +45,7 @@ public class JsonUtil {
     }
 
     public static String build(Object data) {
-        return build(200, "success", data);
+        return build(200, "ok", data);
     }
 
     public static String build(int statusCode, String message) {
