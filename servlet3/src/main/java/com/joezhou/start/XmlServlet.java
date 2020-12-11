@@ -1,4 +1,4 @@
-package com.joezhou.start.servlet;
+package com.joezhou.start;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

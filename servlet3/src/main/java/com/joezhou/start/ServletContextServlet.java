@@ -1,6 +1,7 @@
-package com.joezhou.start.servlet;
+package com.joezhou.start;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,15 +10,16 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-public class ServletConfigXmlServlet extends HttpServlet {
+@WebServlet("/api/servlet-context")
+public class ServletContextServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String tel = super.getServletConfig().getInitParameter("tel");
-        System.out.println(tel);
-        String email = super.getServletConfig().getInitParameter("email");
-        System.out.println(email);
+        String loc = super.getServletContext().getInitParameter("loc");
+        System.out.println(loc);
+        String type = super.getServletContext().getInitParameter("type");
+        System.out.println(type);
         resp.setContentType("text/html;charset=UTF-8");
-        resp.getWriter().print(tel + " : " + email);
+        resp.getWriter().print(loc + " : " + type);
     }
 
     @Override

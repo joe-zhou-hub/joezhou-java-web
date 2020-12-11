@@ -22,12 +22,12 @@
 
     <servlet>
         <servlet-name>xmlServlet</servlet-name>
-        <servlet-class>com.joezhou.start.servlet.XmlServlet</servlet-class>
+        <servlet-class>com.joezhou.start.XmlServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>initParamXmlServlet</servlet-name>
-        <servlet-class>com.joezhou.start.servlet.ServletConfigXmlServlet</servlet-class>
+        <servlet-class>com.joezhou.start.ServletConfigXmlServlet</servlet-class>
         <init-param>
             <param-name>tel</param-name>
             <param-value>18210210122</param-value>
