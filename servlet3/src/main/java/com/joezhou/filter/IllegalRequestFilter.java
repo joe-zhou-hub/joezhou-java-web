@@ -24,18 +24,11 @@ public class IllegalRequestFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        String uri = req.getRequestURI();
-        String effectivePath = "/api/login";
-        if (uri.contains(effectivePath) || isLoggedIn(req, resp)) {
+        final String effectivePath = "/api/login";
+        if (req.getRequestURI().contains(effectivePath) || isLoggedIn(req, resp)) {
             chain.doFilter(req, resp);
         } else {
-            String ajaxRequestKey = "x-requested-with";
-            String ajaxRequestVal = "XMLHttpRequest";
-            if (ajaxRequestVal.equals(req.getHeader(ajaxRequestKey))) {
-                resp.getWriter().println("{\"message\":\"非法登陆！\"}");
-            } else {
-                req.getRequestDispatcher("/error.html").forward(req, resp);
-            }
+            resp.getWriter().println("{\"message\":\"非法登陆！\"}");
         }
     }
 
