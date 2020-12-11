@@ -13,9 +13,9 @@ import java.io.IOException;
 @WebServlet("/api/filter-test")
 public class FilterTestServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req.getParameter("name"));
-        System.out.println("FilterServlet: doGet()...");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println("FilterTestServlet: doGet()...");
+        resp.getWriter().print("{\"name\":" + req.getParameter("name") + "}");
     }
 
     @Override

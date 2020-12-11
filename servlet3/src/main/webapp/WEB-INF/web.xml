@@ -20,6 +20,15 @@
         </session-config>
     -->
 
+    <filter>
+        <filter-name>EncodingXmlFilter</filter-name>
+        <filter-class>com.joezhou.filter.EncodingXmlFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingXmlFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>xmlServlet</servlet-name>
         <servlet-class>com.joezhou.start.XmlServlet</servlet-class>
