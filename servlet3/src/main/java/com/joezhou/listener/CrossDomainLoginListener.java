@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * @author JoeZhou
- *
+ * 
  */
 @WebListener
 public class CrossDomainLoginListener implements ServletContextListener {
