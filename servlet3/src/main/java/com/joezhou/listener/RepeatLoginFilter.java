@@ -32,10 +32,9 @@ public class RepeatLoginFilter implements Filter {
             if (onlineUsers.isEmpty() || !onlineUsers.contains(name)) {
                 chain.doFilter(req, resp);
             } else {
-                resp.getWriter().print("{\"message\":\"" + name + "已登录！\"}");
+                resp.getWriter().print(name + " 不允许重复登录！");
             }
         }
-
     }
 
     @Override

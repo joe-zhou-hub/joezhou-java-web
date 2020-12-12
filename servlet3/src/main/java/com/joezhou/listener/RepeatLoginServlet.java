@@ -39,8 +39,7 @@ public class RepeatLoginServlet extends HttpServlet {
             onlineUsers.add(name);
             application.setAttribute("onlineUsers", onlineUsers);
         }
-
-        resp.getWriter().print("{\"message\":\"" + name + "登录了您的网站！\"}");
+        resp.getWriter().print(name + "登录...");
     }
 
     @Override
