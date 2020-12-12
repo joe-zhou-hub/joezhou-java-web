@@ -11,12 +11,12 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/api/illegal-request")
+public class IllegalRequestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        // Hypothesis login success
+        // suppose login success
 
         HttpSession session;
         synchronized (session = req.getSession()) {
