@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/cross-domain-login")
-public class CrossDomainLoginServlet extends HttpServlet {
+@WebServlet("/api/repeat-login")
+public class RepeatLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String meta = req.getParameter("meta");

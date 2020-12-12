@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * @author JoeZhou
  */
-@WebFilter("/api/cross-domain-login")
-public class CrossDomainLoginFilter implements Filter {
+@WebFilter("/api/repeat-login")
+public class RepeatLoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {
         System.out.println("CrossDomainLoginFilter: init()...");
