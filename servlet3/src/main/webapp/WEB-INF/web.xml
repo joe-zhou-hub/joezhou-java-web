@@ -5,6 +5,7 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
+
     <context-param>
         <param-name>loc</param-name>
         <param-value>china</param-value>
@@ -28,6 +29,10 @@
         <filter-name>EncodingXmlFilter</filter-name>
         <url-pattern>/api/*</url-pattern>
     </filter-mapping>
+
+    <listener>
+        <listener-class>com.joezhou.listener.XmlListener</listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>xmlServlet</servlet-name>
