@@ -76,6 +76,13 @@
             <version>2.8.5</version>
         </dependency>
 
+        <!--jxls-core-->
+        <dependency>
+            <groupId>net.sf.jxls</groupId>
+            <artifactId>jxls-core</artifactId>
+            <version>1.0-RC-2</version>
+        </dependency>
+
     </dependencies>
 
 </project>
