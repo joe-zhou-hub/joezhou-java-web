@@ -18,7 +18,7 @@ public class ExcelServlet extends HttpServlet {
 
     @SneakyThrows
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         String templatePath = req.getServletContext().getRealPath("/template/user-template.xls");
         String outputDirectory = req.getServletContext().getRealPath("/excel");
         ExcelService userService = new ExcelServiceImpl();
