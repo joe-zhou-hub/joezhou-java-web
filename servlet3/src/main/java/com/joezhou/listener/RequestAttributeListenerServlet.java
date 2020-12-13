@@ -18,16 +18,16 @@ public class RequestAttributeListenerServlet extends HttpServlet {
         String meta = req.getParameter("meta");
 
         if (Meta.ADD.equals(meta)) {
-            req.setAttribute("request-key", "request-value");
-            resp.getWriter().print("请求域属性添加成功！");
+            req.setAttribute("name", "admin");
+            resp.getWriter().print("add success!");
         } else if (Meta.REPLACE.equals(meta)) {
-            req.setAttribute("request-key", "request-value-a");
-            req.setAttribute("request-key", "request-Value-b");
-            resp.getWriter().print("请求域属性修改成功！");
+            req.setAttribute("name", "admin");
+            req.setAttribute("name", "joe");
+            resp.getWriter().print("replace success!");
         } else if (Meta.REMOVE.equals(meta)) {
-            req.setAttribute("request-key", "request-value");
-            req.removeAttribute("request-key");
-            resp.getWriter().print("请求域属性删除成功！");
+            req.setAttribute("name", "admin");
+            req.removeAttribute("name");
+            resp.getWriter().print("remove success!");
         }
     }
 
@@ -36,7 +36,6 @@ public class RequestAttributeListenerServlet extends HttpServlet {
         String REPLACE = "replace";
         String REMOVE = "remove";
     }
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

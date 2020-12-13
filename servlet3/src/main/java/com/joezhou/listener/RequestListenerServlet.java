@@ -14,7 +14,7 @@ import java.io.IOException;
 public class RequestListenerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().print("请求发送成功！");
+        resp.getWriter().print("request success!");
     }
 
     @Override
