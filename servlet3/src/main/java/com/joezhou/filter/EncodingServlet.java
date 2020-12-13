@@ -10,8 +10,8 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/filter-test")
-public class FilterTestServlet extends HttpServlet {
+@WebServlet("/api/encoding")
+public class EncodingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         System.out.println("FilterTestServlet: doGet()...");
