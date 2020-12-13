@@ -1,11 +1,9 @@
 package com.joezhou.jxls.service.impl;
 
-import com.joezhou.jxls.service.UserService;
+import com.joezhou.jxls.service.ExcelService;
 import net.sf.jxls.transformer.XLSTransformer;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,23 +12,26 @@ import java.util.Map;
 /**
  * @author JoeZhou
  */
-public class UserServiceImpl implements UserService {
+public class ExcelServiceImpl implements ExcelService {
 
     @Override
-    public void listAndPrintExcel(String templatePath, String outputDirectory) throws IOException, InvalidFormatException {
+    public void listAndPrintExcel(String templatePath, String outputDirectory) {
         File directory = new File(outputDirectory);
         if (!directory.exists()) {
-            directory.mkdirs();
+            System.out.println(directory.mkdirs());
         }
         XLSTransformer transformer = new XLSTransformer();
-        Map<String, Object> map = new HashMap<>(2);
-        map.put("title", "用户信息表");
-        map.put("users", this.list());
-        transformer.transformXLS(templatePath, map, outputDirectory + "/user.xls");
+        try {
+            transformer.transformXLS(templatePath, getExcelData(), outputDirectory + "/user.xls");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private List<Map<String, Object>> list() {
+    private Map<String, Object> getExcelData() {
+        Map<String, Object> map = new HashMap<>(2);
         List<Map<String, Object>> users = new ArrayList<>();
+
         Map<String, Object> user;
         int amountOfUsers = 100;
         for (int i = 1; i <= amountOfUsers; i++) {
@@ -40,6 +41,9 @@ public class UserServiceImpl implements UserService {
             user.put("password", "123" + i);
             users.add(user);
         }
-        return users;
+
+        map.put("title", "用户信息表");
+        map.put("users", users);
+        return map;
     }
 }
