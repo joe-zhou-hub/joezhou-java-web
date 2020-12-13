@@ -12,22 +12,21 @@ public class RequestAttributeListener implements ServletRequestAttributeListener
 
     @Override
     public void attributeAdded(ServletRequestAttributeEvent event) {
-        // 被添加的key和value
-        System.out.print("请求域中添加了属性...");
-        System.out.println(event.getName() + ":" + event.getValue());
+        System.out.print("RequestAttributeListener: attributeAdded()...");
+        System.out.println(event.getName() + " : " + event.getValue());
     }
 
     @Override
     public void attributeReplaced(ServletRequestAttributeEvent event) {
-        // 被替换的key和原来的value
-        System.out.print("请求域中替换了属性...");
+
+        // value is old...
+        System.out.print("RequestAttributeListener: attributeReplaced()...");
         System.out.println(event.getName() + ":" + event.getValue());
     }
 
     @Override
     public void attributeRemoved(ServletRequestAttributeEvent event) {
-        // 被删除的key和value
-        System.out.print("请求域中删除了属性...");
+        System.out.print("RequestAttributeListener: attributeRemoved()...");
         System.out.println(event.getName() + ":" + event.getValue());
     }
 }
