@@ -37,7 +37,6 @@ public class RepeatLoginServlet extends HttpServlet {
         synchronized (application = req.getServletContext()) {
             List<String> onlineUsers = (List<String>) application.getAttribute("onlineUsers");
             onlineUsers.add(name);
-            application.setAttribute("onlineUsers", onlineUsers);
         }
         resp.getWriter().print(name + "登录...");
     }
