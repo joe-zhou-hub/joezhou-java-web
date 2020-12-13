@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author JoeZhou
  */
 @WebListener
-public class RequestListener implements ServletRequestListener {
+public class MyRequestListener implements ServletRequestListener {
 
     @Override
     public void requestInitialized(ServletRequestEvent event) {

@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebListener;
  * @author JoeZhou
  */
 @WebListener
-public class RequestAttributeListener implements ServletRequestAttributeListener {
+public class MyRequestAttributeListener implements ServletRequestAttributeListener {
 
     @Override
     public void attributeAdded(ServletRequestAttributeEvent event) {

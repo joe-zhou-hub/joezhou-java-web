@@ -9,8 +9,8 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/request-attribute-listener")
-public class RequestAttributeListenerServlet extends HttpServlet {
+@WebServlet("/api/my-request-attribute")
+public class MyRequestAttributeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {

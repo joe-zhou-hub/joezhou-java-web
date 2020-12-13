@@ -10,8 +10,8 @@ import java.io.IOException;
 /**
  * @author JoeZhou
  */
-@WebServlet("/api/request-listener")
-public class RequestListenerServlet extends HttpServlet {
+@WebServlet("/api/my-request")
+public class MyRequestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().print("request success!");
