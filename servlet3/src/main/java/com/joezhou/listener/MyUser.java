@@ -6,15 +6,15 @@ import javax.servlet.http.HttpSessionBindingListener;
 /**
  * @author JoeZhou
  */
-public class User implements HttpSessionBindingListener {
+public class MyUser implements HttpSessionBindingListener {
 
     @Override
     public void valueBound(HttpSessionBindingEvent event) {
-        System.out.println("User join to HttpSession: " + event.getSession().getId());
+        System.out.println("MyUser bound to session: " + event.getSession().getId());
     }
 
     @Override
     public void valueUnbound(HttpSessionBindingEvent event) {
-        System.out.println("User leave from HttpSession: " + event.getSession().getId());
+        System.out.println("MyUser unbound from session: " + event.getSession().getId());
     }
 }
