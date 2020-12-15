@@ -49,6 +49,6 @@ public class JsonUtil {
     }
 
     public static String build(int statusCode, String message) {
-        return build(200, "success", null);
+        return build(statusCode, message, null);
     }
 }
