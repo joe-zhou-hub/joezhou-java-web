@@ -15,26 +15,36 @@ public class MyApplicationAttributeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String meta = req.getParameter("meta");
-
-        if (Meta.ADD.equals(meta)) {
-            req.getServletContext().setAttribute("name", "admin");
-            resp.getWriter().print("add success!");
-        } else if (Meta.REPLACE.equals(meta)) {
-            req.getServletContext().setAttribute("name", "admin");
-            req.getServletContext().setAttribute("name", "joe");
-            resp.getWriter().print("replace success!");
-        } else if (Meta.REMOVE.equals(meta)) {
-            req.getServletContext().setAttribute("name", "admin");
-            req.getServletContext().removeAttribute("name");
-            resp.getWriter().print("remove success!");
+        switch (req.getParameter("meta")) {
+            case "add":
+                add(req, resp);
+                break;
+            case "replace":
+                replace(req, resp);
+                break;
+            case "remove":
+                remove(req, resp);
+                break;
+            default:
+                throw new RuntimeException("meta error...");
         }
     }
 
-    interface Meta {
-        String ADD = "add";
-        String REPLACE = "replace";
-        String REMOVE = "remove";
+    private void add(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getServletContext().setAttribute("name", "admin");
+        resp.getWriter().print("add success!");
+    }
+
+    private void replace(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getServletContext().setAttribute("name", "admin");
+        req.getServletContext().setAttribute("name", "joe");
+        resp.getWriter().print("replace success!");
+    }
+
+    private void remove(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getServletContext().setAttribute("name", "admin");
+        req.getServletContext().removeAttribute("name");
+        resp.getWriter().print("remove success!");
     }
 
     @Override

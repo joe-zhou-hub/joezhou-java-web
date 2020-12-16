@@ -15,21 +15,28 @@ import java.io.IOException;
 public class MySessionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String meta = req.getParameter("meta");
-        HttpSession session;
-        if (Meta.CREATE.equals(meta)) {
-            session = req.getSession();
-            resp.getWriter().print("session create success: " + session.getId());
-        } else if (Meta.DESTROY.equals(meta)) {
-            session = req.getSession();
-            session.invalidate();
-            resp.getWriter().print("session destroy success: " + session.getId());
+
+        switch (req.getParameter("meta")) {
+            case "create":
+                create(req, resp);
+                break;
+            case "destroy":
+                destroy(req, resp);
+                break;
+            default:
+                throw new RuntimeException("meta error...");
         }
     }
 
-    interface Meta {
-        String CREATE = "create";
-        String DESTROY = "destroy";
+    private void create(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        resp.getWriter().print("session create success: " + session.getId());
+    }
+
+    private void destroy(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        session.invalidate();
+        resp.getWriter().print("session destroy success: " + session.getId());
     }
 
     @Override

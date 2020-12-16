@@ -14,22 +14,26 @@ import java.io.IOException;
 public class MyUserBindingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        String meta = req.getParameter("meta");
-        MyUser myUser = new MyUser();
-
-        if (Meta.BOUND.equals(meta)) {
-            req.getSession().setAttribute("myUser", myUser);
-            resp.getWriter().print("myUser bound success!");
-        } else if (Meta.UNBOUND.equals(meta)) {
-            req.getSession().removeAttribute("myUser");
-            resp.getWriter().print("myUser unbound success!");
+        switch (req.getParameter("meta")) {
+            case "bound":
+                bound(req, resp);
+                break;
+            case "unbound":
+                unbound(req, resp);
+                break;
+            default:
+                throw new RuntimeException("meta error...");
         }
     }
 
-    interface Meta {
-        String BOUND = "bound";
-        String UNBOUND = "unbound";
+    private void bound(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getSession().setAttribute("myUser", new MyUser());
+        resp.getWriter().print("myUser bound success!");
+    }
+
+    private void unbound(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getSession().removeAttribute("myUser");
+        resp.getWriter().print("myUser unbound success!");
     }
 
     @Override
