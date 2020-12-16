@@ -18,15 +18,15 @@ public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setCharacterEncoding("UTF-8");
-        
-        String meta = req.getParameter("meta");
-        if (Meta.LOGIN.equals(meta)) {
-            login(req, resp);
+        switch (req.getParameter("meta")) {
+            case "login":
+                login(req, resp);
+                break;
+            case "":
+                break;
+            default:
+                throw new RuntimeException("meta error...");
         }
-    }
-
-    interface Meta {
-        String LOGIN = "login";
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {

@@ -25,18 +25,16 @@ public class JsonServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         req.setCharacterEncoding("UTF-8");
-
-        String meta = req.getParameter("meta");
-        if (Meta.JACKSON.equals(meta)) {
-            jackson(req, resp);
-        } else if (Meta.GSON.equals(meta)) {
-            gson(req, resp);
+        switch (req.getParameter("meta")) {
+            case "jackson":
+                jackson(req, resp);
+                break;
+            case "gson":
+                gson(req, resp);
+                break;
+            default:
+                throw new RuntimeException("meta error...");
         }
-    }
-
-    interface Meta {
-        String JACKSON = "jackson";
-        String GSON = "gson";
     }
 
     private Map<String, Object> getMap(int num) {

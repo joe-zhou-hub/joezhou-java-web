@@ -15,22 +15,11 @@ public class AjaxServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
         req.setCharacterEncoding("UTF-8");
-
-        String meta = req.getParameter("meta");
-        if (Meta.AJAX_TYPE.equals(meta)) {
-            ajaxType(req, resp);
-        }
-    }
-
-    interface Meta {
-        String AJAX_TYPE = "ajax_type";
-        String XML_HTTP_REQUEST = "XMLHttpRequest";
-    }
-
-    private void ajaxType(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String xRequestedWith = req.getHeader("x-requested-with");
-        if (xRequestedWith != null && xRequestedWith.equals(Meta.XML_HTTP_REQUEST)) {
+        String ajaxType = "XMLHttpRequest";
+        if (ajaxType.equals(xRequestedWith)) {
             System.out.println("本次请求是AJAX请求，回写JSON数据...");
             resp.setContentType("application/json;charset=UTF-8");
             String jsonStr = "{\"username\":\"admin\",\"password\":\"123\"}";

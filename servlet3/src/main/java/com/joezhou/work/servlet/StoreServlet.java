@@ -19,21 +19,19 @@ public class StoreServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
-
-        String meta = req.getParameter("meta");
-        if (Meta.REQUEST.equals(meta)) {
-            request(req, resp);
-        } else if (Meta.SESSION.equals(meta)) {
-            session(req, resp);
-        } else if (Meta.APPLICATION.equals(meta)) {
-            application(req, resp);
+        switch (req.getParameter("meta")) {
+            case "request":
+                request(req, resp);
+                break;
+            case "session":
+                session(req, resp);
+                break;
+            case "application":
+                application(req, resp);
+                break;
+            default:
+                throw new RuntimeException("meta error...");
         }
-    }
-
-    interface Meta {
-        String REQUEST = "request";
-        String SESSION = "session";
-        String APPLICATION = "application";
     }
 
     private void request(HttpServletRequest req, HttpServletResponse resp) throws IOException {
