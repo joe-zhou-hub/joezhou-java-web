@@ -10,7 +10,7 @@ import java.util.List;
  * @author JoeZhou
  */
 @Data
-public class PageUtil implements Serializable {
+public class PagingUtil implements Serializable {
 
     private Integer size, page, pages, total;
     private List<String> numbers;
@@ -21,7 +21,7 @@ public class PageUtil implements Serializable {
      * @param page the current page number, default 1, String for controller...
      * @param size the size per page, default 5, String for controller...
      */
-    public PageUtil(String page, String size) {
+    public PagingUtil(String page, String size) {
         try {
             int realPage = Integer.parseInt(page);
             int realSize = Integer.parseInt(size);
@@ -34,7 +34,7 @@ public class PageUtil implements Serializable {
         }
     }
 
-    public PageUtil() {
+    public PagingUtil() {
         this("1", "5");
     }
 
